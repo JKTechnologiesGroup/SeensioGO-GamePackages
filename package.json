@@ -1,0 +1,11 @@
+{
+    "name": "com.seensiogo.unitygamepackages",
+    "version": "1.0.0",
+    "displayName": "SeensioGo Packages",
+    "description": "SeensioGo's core game packages",
+    "unity": "6000.2.5f1",
+    "authors": {
+        "name": "Duc Tran",
+        "email": "duc.tran@joikid.com"
+    }
+}

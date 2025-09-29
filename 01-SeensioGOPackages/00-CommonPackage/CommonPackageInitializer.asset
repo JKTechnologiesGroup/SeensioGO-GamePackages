@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b70c17c3be514525a5950fd80386d87, type: 3}
+  m_Name: CommonPackageInitializer
+  m_EditorClassIdentifier: 
+  authenticationModel: {fileID: 11400000, guid: 8f985f93130304ed6bff66920ff9f238,
+    type: 2}
+  analyticsModel: {fileID: 11400000, guid: 0a80be05171b24450b38677d03a924b3, type: 2}
+  leaderboardModel: {fileID: 11400000, guid: 795c5d441c95b41f597fbfce5889b0f0, type: 2}
+  unityAdsModel: {fileID: 11400000, guid: 2557ca48fb45d4a978f42530135e0449, type: 2}
+  gameLeaderboardConfig:
+    leaderboardId: 
+    leaderboardName: 
+  isUsingDefaultLeaderboardConfig: 0
+  gameUnityAdsConfig:
+    gameId: 
+    bannerPlacementID: 
+    interstitialPlacementID: 
+    rewardedPlacementID: 
+  isUsingDefaultUnityAdsConfig: 0
+  defaultGameLeaderboardConfig:
+    leaderboardId: 
+    leaderboardName: 
+  defaultGameUnityIOSAdsConfig:
+    gameId: 5798361
+    bannerPlacementID: Banner_iOS
+    interstitialPlacementID: Interstitial_iOS
+    rewardedPlacementID: Rewarded_iOS
+  defaultGameUnityAndroidAdsConfig:
+    gameId: 5798360
+    bannerPlacementID: Banner_Android
+    interstitialPlacementID: Interstitial_Android
+    rewardedPlacementID: Rewarded_Android
+  isInitialized: 0
