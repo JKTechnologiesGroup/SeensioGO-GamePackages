@@ -3719,7 +3719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 21.4, y: -75}
+  m_AnchoredPosition: {x: 21.400024, y: -75}
   m_SizeDelta: {x: 385.06, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &721938801
@@ -6528,7 +6528,6 @@ RectTransform:
   m_Children:
   - {fileID: 784515820}
   - {fileID: 1866642605}
-  - {fileID: 2111483632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6562,6 +6561,7 @@ MonoBehaviour:
   gameRewardItemLoaders: []
   leaderBoard: {fileID: 1616903322}
   GiftBoxPanel: {fileID: 2111483633}
+  gameController: {fileID: 0}
 --- !u!1 &1453206413
 GameObject:
   m_ObjectHideFlags: 0
@@ -8262,13 +8262,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2111483632}
   m_Father: {fileID: 1445620742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 364.4, y: 610.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866642606
 MonoBehaviour:
@@ -8283,7 +8284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9877,7 +9878,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1445620742}
+    m_TransformParent: {fileID: 1866642605}
     m_Modifications:
     - target: {fileID: 686967453969734821, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10017,11 +10018,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6054976750663397967, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4
+      value: -23.624462
       objectReference: {fileID: 0}
     - target: {fileID: 6054976750663397967, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -482
+      value: -333.234
       objectReference: {fileID: 0}
     - target: {fileID: 6054976750663397967, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10055,6 +10056,34 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2111483633}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1866642604}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579928375287166743, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8979096013356229365, guid: e7453dddeeba4084fab2666036cf19c0, type: 3}
       propertyPath: m_fontAsset
       value: 

@@ -122,10 +122,16 @@ public class GoTemplateUIManager : MonoBehaviour
     }
 
     public GameController gameController;
+    public GameEngineService gameEngineService;
 
     IEnumerator ReturnToSeensio()
     {
         yield return new WaitForSeconds(0.5f);
         gameController.QuitGame();
+    }
+
+    public void ChooseScene(int index)
+    {
+        GameEngineService.LoadSceneByIndex(index);
     }
 }
