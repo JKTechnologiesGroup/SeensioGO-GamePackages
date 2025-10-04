@@ -23,7 +23,7 @@ MonoBehaviour:
     - Language: en
       Value: BACK TO SEENSIOGO
     - Language: vi
-      Value: "QUAY L\u1EA0I"
+      Value: "QUAY L\u1EA0I SEENSIOGO"
   - Key: SubmitScore
     TextValues:
     - Language: en
