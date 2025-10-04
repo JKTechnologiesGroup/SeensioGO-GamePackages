@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,6 +40,10 @@ namespace JKTechnologies.CommonPackage.Ads
         #region Initialize
         public void Initialize(GameUnityAdsConfig unityAdsConfig)
         {
+            if(isInitialized)
+            {
+                Debug.LogError("Unity Ads Model is already  initialized: " + isInitialized);
+            }
             this.unityAdsConfig = unityAdsConfig;
             isInitialized = true;
             OnInitialized.Invoke();
@@ -57,6 +62,7 @@ namespace JKTechnologies.CommonPackage.Ads
         public void DeInitialize()
         {
             isInitialized = false;
+            unityAdsConfig = new();
         }
         #endregion
     }

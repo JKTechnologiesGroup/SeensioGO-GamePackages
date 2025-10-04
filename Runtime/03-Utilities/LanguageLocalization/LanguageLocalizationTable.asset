@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016a0666a9d8a45d3ace3d745c94bada, type: 3}
+  m_Name: LanguageLocalizationTable
+  m_EditorClassIdentifier: 
+  OnLanguageChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  currentLanguage: vi
+  onNotFound: Not Found
+  languageObjects:
+  - Key: BackToSeensio
+    TextValues:
+    - Language: en
+      Value: BACK TO SEENSIOGO
+    - Language: vi
+      Value: "QUAY L\u1EA0I"
+  - Key: SubmitScore
+    TextValues:
+    - Language: en
+      Value: SUBMIT YOUR SCORE
+    - Language: vi
+      Value: "SUBMIT \u0110I\u1EC2M"
+  - Key: LoadLeaderboard
+    TextValues:
+    - Language: en
+      Value: LOAD LEADERBOARD LIST
+    - Language: vi
+      Value: "B\u1EA2NG X\u1EBEP H\u1EA0NG"
+  - Key: GetTop1
+    TextValues:
+    - Language: en
+      Value: GET TOP 1 SCORE
+    - Language: vi
+      Value: TOP 1 BXH
+  - Key: WatchAd
+    TextValues:
+    - Language: en
+      Value: WATCH AD
+    - Language: vi
+      Value: "Xem Qu\u1EA3ng C\xE1o"
+  - Key: LoadPlayerScore
+    TextValues:
+    - Language: en
+      Value: LOAD PLAYER SCORE
+    - Language: vi
+      Value: "Xem \u0111i\u1EC3m c\u1EE7a b\u1EA1n"

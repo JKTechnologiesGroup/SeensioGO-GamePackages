@@ -12,6 +12,19 @@ namespace JKTechnologies.CommonPackage
             Debug.LogError("Not implement yet" + stringValue);
         }
 
+
+        public string GetConditionName()
+        {
+            GameCondition gameCondition = gameConditionInstance.GetGameCondition();
+            return gameCondition.name;
+        }
+
+        public float GetConditionValue()
+        {
+            GameCondition gameCondition = gameConditionInstance.GetGameCondition();
+            return gameCondition.numberValue;
+        }
+
         public async Task<bool> UpdateNumberConditionValue(float numberCondition)
         {
             GameCondition gameCondition = gameConditionInstance.GetGameCondition();

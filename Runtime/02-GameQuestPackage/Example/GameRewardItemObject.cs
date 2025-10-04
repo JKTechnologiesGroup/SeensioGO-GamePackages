@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +11,10 @@ namespace JKTechnologies.CommonPackage
         [SerializeField] private TextMeshProUGUI amount;
         [SerializeField] private Image icon;
         [SerializeField] private GameConditionInstance gameConditionInstance;
-
         public void Start()
         {
             GameRewardItem[] gameRewardItems = gameConditionInstance.GetGameRewardItems();
-            if(gameRewardItems.Length > 0)
+            if(gameRewardItems.Length > 0)  
             {
                 if(title != null)
                 {
@@ -25,7 +25,6 @@ namespace JKTechnologies.CommonPackage
                 {
                     amount.text = $"x{gameRewardItems[0].amount}";
                 }
-
                 if(icon != null && !string.IsNullOrEmpty(gameRewardItems[0].photoUrl))
                 {
                     GameInstanceModel gameInstanceModel = new GameInstanceModel();

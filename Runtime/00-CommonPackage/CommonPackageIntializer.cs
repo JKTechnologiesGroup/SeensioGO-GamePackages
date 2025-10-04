@@ -93,6 +93,10 @@ namespace JKTechnologies.CommonPackage
         public void DeInitialize()
         {
             isInitialized = false;
+            authenticationModel.DeInitialize();
+            analyticsModel.DeInitialize();
+            leaderboardModel.DeInitialize();
+            unityAdsModel.DeInitialize();
         }
         #endregion
     }

@@ -12,6 +12,12 @@ namespace JKTechnologies.CommonPackage
         {
             GameEngineService.LoadScene(sceneName);
         }
+
+        public void LoadSceneByIndex(int sceneIndex)
+        {
+            GameEngineService.LoadSceneByIndex(sceneIndex);
+        }
+        
         public void QuitGame()       
         {
             GameEngineService.QuitGame();
@@ -20,6 +26,20 @@ namespace JKTechnologies.CommonPackage
         public bool IsDeveloper()
         {
             return GameEngineService.IsDeveloper();
+        }
+
+        public void EnableRealtimeWeather()
+        {
+            GameEngineService.EnableRealtimeWeather();
+        }
+        public void DisableRealtimeWeather()
+        {
+            GameEngineService.DisableRealtimeWeather();
+        }
+
+        public void Load3DModelFromUrl(string model3DUrl, GameObject modelParent)
+        {
+            GameEngineService.Load3DModelFromUrl(model3DUrl, modelParent);
         }
     }
 }

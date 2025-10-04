@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Unity.Services.Core;
 using UnityEngine;
 
@@ -20,6 +19,11 @@ namespace JKTechnologies.CommonPackage
         private void OnDestroy()
         {
             commonPackageInitializer.DeInitialize();    
+        }
+
+        private void OnApplicationQuit()
+        {
+            commonPackageInitializer.DeInitialize();
         }
     }
 }

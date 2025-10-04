@@ -24,6 +24,7 @@ namespace JKTechnologies.CommonPackage
     {
         public string title;
         public string photoUrl;
+        public string custom3DModelUrl;
         public int amount;
     }
 

@@ -110,10 +110,6 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         {
             GameInstanceModel gameInstanceModel = new();
             GameUserInfo gameUserInfo = gameInstanceModel.UserService.GetUserInfo();
-            if(gameUserInfo == null)
-            {
-                return;
-            }
 
             AddPlayerScoreOptions options = new AddPlayerScoreOptions();
             GameUserRankingMetadata gameUserRankingMetadata = new()
@@ -163,6 +159,9 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         public void DeInitialize()
         {
             isInitialized = false;
+            leaderboardConfig = new();
+            leaderboardScoresPageList = new();
+            currentPlayerLeaderboardEntry = null;
         }
         #endregion
     }

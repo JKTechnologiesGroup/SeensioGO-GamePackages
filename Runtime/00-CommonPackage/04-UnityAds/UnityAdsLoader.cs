@@ -12,12 +12,8 @@ namespace JKTechnologies.CommonPackage.Ads
         #region Actions
         public void ShowAd()
         {
-#if SEENSIOGO
             unityAdsModel.OnUnityAdsShowComplete.AddListener(OnAdCompletedEvent);
             unityAdsModel.OnStartShowAd.Invoke(adType);
-#else
-            OnAdCompleted.Invoke();
-#endif
         }
 
         private void OnAdCompletedEvent()

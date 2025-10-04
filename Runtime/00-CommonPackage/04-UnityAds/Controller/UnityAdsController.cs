@@ -61,6 +61,7 @@ namespace JKTechnologies.CommonPackage.Ads
 
         private void InitializeUnityAdsService()
         {
+            Debug.LogError("Check if multiple invoke: " + currentConfig.gameId);
 #if UNITY_EDITOR
             Advertisement.Initialize(currentConfig.gameId, true, this);
 #else

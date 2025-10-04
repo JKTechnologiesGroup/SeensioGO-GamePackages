@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace JKTechnologies.CommonPackage
 {
@@ -24,9 +24,13 @@ namespace JKTechnologies.CommonPackage
         protected virtual void HandleQuitGame() { }
         protected virtual void HandleLoadImageFromUrl(Image imageObject, string imageUrl, int maxSize = 1024, GameObject loadingObject = null) {}
         protected virtual void HandleLoadScene(string sceneName) { }
+        protected virtual void HandleLoadSceneByIndex(int sceneIndex) { }
         protected virtual bool HandleIsDeveloper(){return true;}
         protected virtual Task<T> HandleGetGameDataByQuestPackPoolId<T>(string campaignId) { return default; }
         protected virtual Task<bool> HandleUpdateGameDataByQuestPackPoolId(string campaignId, object gameData) { return default; }
+        protected virtual void HandleEnableRealtimeWeather() { }
+        protected virtual void HandleDisableRealtimeWeather() { }
+        protected virtual void HandleLoad3DModelFromUrl(string modelUrl, GameObject modelParent){}
         #endregion
 
         #region User Info
@@ -141,7 +145,6 @@ namespace JKTechnologies.CommonPackage
         #region Utilities
         public static void LoadScene(string sceneName)
         {
-
             #if !SEENSIOGO
             SceneManager.LoadScene(sceneName);
             #endif
@@ -151,6 +154,19 @@ namespace JKTechnologies.CommonPackage
                 return;
             }
             instance.HandleLoadScene(sceneName);
+        }
+
+        public static void LoadSceneByIndex(int sceneIndex)
+        {
+            #if !SEENSIOGO
+            SceneManager.LoadScene(sceneIndex);
+            #endif
+            if(instance == null) 
+            {
+                Debug.LogError("GameEngineService is null");
+                return;
+            }
+            instance.HandleLoadSceneByIndex(sceneIndex);
         }
         public static void LoadImageFromUrl(Image imageObject, string imageUrl, int maxSize = 1024, GameObject loadingObject = null)
         {
@@ -203,6 +219,40 @@ namespace JKTechnologies.CommonPackage
                 return false;
             }
             return await instance.HandleUpdateGameDataByQuestPackPoolId(questPackPoolId, gameData);
+        }
+        #endregion
+
+        #region Enable Realtime Weather
+        public static void EnableRealtimeWeather()
+        {
+            if(instance == null) 
+            {
+                Debug.LogError("GameEngineService is null");
+                return;
+            }
+            instance.HandleEnableRealtimeWeather();
+        }
+
+        public static void DisableRealtimeWeather()
+        {
+            if(instance == null) 
+            {
+                Debug.LogError("GameEngineService is null");
+                return;
+            }
+            instance.HandleDisableRealtimeWeather();
+        }
+        #endregion
+
+        #region Load 3D Model From URL
+        public static void Load3DModelFromUrl(string modelUrl, GameObject modelParent)
+        {
+            if(instance == null)
+            {
+                Debug.LogError("Game Engine Service is null");
+                return;
+            }
+            instance.HandleLoad3DModelFromUrl(modelUrl, modelParent);
         }
         #endregion
     }   

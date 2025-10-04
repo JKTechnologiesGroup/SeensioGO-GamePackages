@@ -17,5 +17,10 @@ namespace JKTechnologies.CommonPackage
         {
             return gameConditionInstance.Id;
         }
+
+        public GameRewardItem[] GetGameRewardItems()
+        {
+            return gameConditionInstance.GetGameRewardItems();
+        }
     }
 }
