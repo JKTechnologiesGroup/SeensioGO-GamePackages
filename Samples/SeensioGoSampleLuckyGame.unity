@@ -5462,9 +5462,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1445620743}
+      - m_Target: {fileID: 1445620738}
         m_TargetAssemblyTypeName: GoTemplateUIManager, Assembly-CSharp
-        m_MethodName: OnCommonPrizeClicked
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7317,10 +7317,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445620738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52118c193b7ad364d9e5ae4b97c2b8d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f23e39857b4a47c4ba6bce70586ec80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoTemplateUIManager
-  leaderboardUpdater: {fileID: 11400000, guid: 05cb71890271c4c7387ce9d83bb29fdc, type: 2}
+  leaderboardUpdater: {fileID: 0}
   scoreInputField: {fileID: 0}
   gameConditionController: {fileID: 0}
   gameRankRewardController: {fileID: 0}
@@ -7337,8 +7337,7 @@ MonoBehaviour:
   - {fileID: 1663636393}
   leaderBoard: {fileID: 0}
   GiftBoxPanel: {fileID: 2111483633}
-  gameController: {fileID: 0}
-  gameEngineService: {fileID: 11400000, guid: 4ef0fedd7956e472bb34fe611ba7de75, type: 2}
+  gameController: {fileID: 1415780780}
 --- !u!1 &1453206413
 GameObject:
   m_ObjectHideFlags: 0

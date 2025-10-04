@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +12,31 @@ namespace JKTechnologies.CommonPackage
         [SerializeField] private TextMeshProUGUI amount;
         [SerializeField] private Image icon;
         [SerializeField] private GameConditionInstance gameConditionInstance;
-        public void Start()
+
+        #region Lifecycle
+        private void Start()
         {
+            if(gameConditionInstance.IsActive)
+            {
+                LoadUI();
+            }
+            else
+            {
+                gameConditionInstance.OnActiveEvent.AddListener(LoadUI);
+            }
+        }
+
+
+        private void OnDestroy()
+        {
+            gameConditionInstance.OnActiveEvent.RemoveListener(LoadUI);
+        }
+        #endregion
+
+        #region Load UI
+        private void LoadUI()
+        {
+            gameConditionInstance.OnActiveEvent.RemoveListener(LoadUI);
             GameRewardItem[] gameRewardItems = gameConditionInstance.GetGameRewardItems();
             if(gameRewardItems.Length > 0)  
             {
@@ -32,5 +56,6 @@ namespace JKTechnologies.CommonPackage
                 }
             }
         }
+        #endregion
     }
 }

@@ -8,6 +8,8 @@ namespace JKTechnologies.CommonPackage
         protected static GameQuestService instance;
         protected virtual GameQuestInstance Handle_GetGameQuestRewards() {return null;}
         protected virtual Task<bool> Handle_CompleteCondition(string conditionId, string gameConditionId){return null;}
+        protected virtual Task<bool> Handle_HitWinByCondition(string conditionId, string gameConditionId){return null;}
+        protected virtual Task<bool> Handle_CompleteConditionForce(string conditionId, string gameConditionId){return null;}
         protected virtual Task<bool> Handle_CompleteRankReward(int rankIndex){return null;}
         protected virtual Task<GameLeaderboardConfig> HandleGetGameLeaderboardConfig(){return null;}
         protected virtual Task<GameUnityAdsConfig> HandleGetGameUnityAdsConfig(){return null;}
@@ -39,6 +41,24 @@ namespace JKTechnologies.CommonPackage
                 return false;
             }
             return await instance.Handle_CompleteRankReward(rankIndex);
+        }
+        
+        public static async Task<bool> HitWinByCondition(string conditionId, string gameConditionId)
+        {
+            if(instance == null)
+            {
+                return false;
+            }
+            return await instance.Handle_HitWinByCondition(conditionId, gameConditionId);
+        }
+
+        public static async Task<bool> CompleteConditionForce(string conditionId, string gameConditionId)
+        {
+            if(instance == null)
+            {
+                return false;
+            }
+            return await instance.Handle_CompleteConditionForce(conditionId, gameConditionId);
         }
         #endregion
 

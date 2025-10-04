@@ -3077,6 +3077,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563381014}
   m_CullTransparentMesh: 1
+--- !u!1 &607207080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333628141912733935, guid: f883f866399694fb680e6e32cbf81b35, type: 3}
+  m_PrefabInstance: {fileID: 2106008377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &664477343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6196,7 +6201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445620738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52118c193b7ad364d9e5ae4b97c2b8d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f23e39857b4a47c4ba6bce70586ec80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoTemplateUIManager
   leaderboardUpdater: {fileID: 11400000, guid: 05cb71890271c4c7387ce9d83bb29fdc, type: 2}
@@ -6204,7 +6209,7 @@ MonoBehaviour:
   gameConditionController: {fileID: 1224203129}
   gameRankRewardController: {fileID: 1395828884}
   currentPlayerScore: {fileID: 1275360545}
-  watchAdCompleteText: {fileID: 721938799}
+  watchAdCompleteText: {fileID: 607207080}
   commonPrize: {fileID: 0}
   rarePrize: {fileID: 0}
   superRarePrize: {fileID: 0}
@@ -6214,7 +6219,6 @@ MonoBehaviour:
   leaderBoard: {fileID: 1616903322}
   GiftBoxPanel: {fileID: 0}
   gameController: {fileID: 0}
-  gameEngineService: {fileID: 0}
 --- !u!1 &1453206413
 GameObject:
   m_ObjectHideFlags: 0
@@ -9384,7 +9388,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7345138333276971895, guid: f883f866399694fb680e6e32cbf81b35, type: 3}
   m_PrefabInstance: {fileID: 2106008377}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 607207080}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2673ba3852a8743dc9ca39c29c67a751, type: 3}

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace JKTechnologies.CommonPackage
 {
@@ -7,24 +8,30 @@ namespace JKTechnologies.CommonPackage
     public class GameConditionInstance :ScriptableObject
     {
         public string Id => gameConditionId;
+        public bool IsActive => isActive;
+        public int Index => index;
+        public UnityEvent OnActiveEvent;
+
         [SerializeField] private string gameConditionId;
         [SerializeField] private GameCondition gameCondition;
         [SerializeField] private GameRewardItem[] gameRewardItems;
         [SerializeField] private string conditionRewardId;
         [SerializeField] private bool isActive;
+        [SerializeField] private int index;
 
         public void Activate(GameCondition gameCondition, string conditionRewardId, GameRewardItem[] gameRewardItems = null)
         {
-            Debug.LogError("Activate condition: " + gameCondition.id + " - " + gameConditionId);
+            // Debug.LogError("Activate condition: " + gameCondition.id + " - " + gameConditionId);
             if(gameCondition.id == gameConditionId)
             {
-                isActive = true;
                 this.gameCondition = gameCondition;
                 this.conditionRewardId = conditionRewardId;
                 if(gameRewardItems != null)
                 {
                     this.gameRewardItems = gameRewardItems;
                 }
+                isActive = true;
+                OnActiveEvent.Invoke();
             }
         }
 
@@ -56,6 +63,38 @@ namespace JKTechnologies.CommonPackage
             }
 
             bool isSuccess = await GameQuestService.CompleteCondition(conditionRewardId, gameCondition.id);
+            if(!isSuccess)
+            {
+                Debug.LogError("Failed to complete this condition: " + gameCondition.id);
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> HitWin()
+        {
+            if(!isActive)
+            {
+                return false;
+            }
+
+            bool isSuccess = await GameQuestService.HitWinByCondition(conditionRewardId, gameCondition.id);
+            if(!isSuccess)
+            {
+                Debug.LogError("Failed to hit win condition: " + gameCondition.id);
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> CompleteConditionForce()
+        {
+            if(!isActive)
+            {
+                return false;
+            }
+
+            bool isSuccess = await GameQuestService.CompleteConditionForce(conditionRewardId, gameCondition.id);
             if(!isSuccess)
             {
                 Debug.LogError("Failed to complete this condition: " + gameCondition.id);

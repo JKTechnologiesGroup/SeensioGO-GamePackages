@@ -241,7 +241,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1924221781}
-        m_TargetAssemblyTypeName: GoTemplateUIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: JKTechnologies.CommonPackage.Samples.GoTemplateUIManager,
+          Assembly-CSharp
         m_MethodName: ChooseScene
         m_Mode: 3
         m_Arguments:
@@ -416,8 +417,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 88617424}
   - {fileID: 124112251}
+  - {fileID: 88617424}
   m_Father: {fileID: 1924221780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -965,7 +966,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924221776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52118c193b7ad364d9e5ae4b97c2b8d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f23e39857b4a47c4ba6bce70586ec80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoTemplateUIManager
   leaderboardUpdater: {fileID: 0}
@@ -983,7 +984,6 @@ MonoBehaviour:
   leaderBoard: {fileID: 0}
   GiftBoxPanel: {fileID: 0}
   gameController: {fileID: 0}
-  gameEngineService: {fileID: 0}
 --- !u!1 &1940321232
 GameObject:
   m_ObjectHideFlags: 0

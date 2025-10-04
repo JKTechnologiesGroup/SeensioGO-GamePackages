@@ -23,15 +23,15 @@ namespace JKTechnologies.CommonPackage.LanguageLocalizations
 
         public void OnDestroy()
         {
-            LanguageLocalizationTable.OnInitialized.RemoveListener(StartStringEvent);
-            LanguageLocalizationTable.Instance.OnLanguageChanged.RemoveListener(LoadString);
+            LanguageLocalizationTable.OnInitialized?.RemoveListener(StartStringEvent);
+            LanguageLocalizationTable.Instance?.OnLanguageChanged.RemoveListener(LoadString);
         }
         #endregion
 
         #region Load String
         private void StartStringEvent()
         {
-            LanguageLocalizationTable.Instance.OnLanguageChanged.AddListener(LoadString);
+            LanguageLocalizationTable.Instance?.OnLanguageChanged.AddListener(LoadString);
             LoadString();
         }
         private void LoadString()

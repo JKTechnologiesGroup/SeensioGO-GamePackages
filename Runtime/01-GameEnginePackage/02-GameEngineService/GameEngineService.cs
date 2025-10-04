@@ -10,9 +10,9 @@ namespace JKTechnologies.CommonPackage
         #region Internal Properties
         protected static GameEngineService instance;
         protected virtual GameUserInfo HandleGetUserInfo() { return null; }
-        
-        protected virtual void HandleRegisterEconomyListener(IGameEconomyListener gameEconomyListener){}
-        protected virtual void HandleUnregisterEconomyListener(IGameEconomyListener gameEconomyListener) {}
+
+        protected virtual void HandleRegisterEconomyListener(IGameEconomyListener gameEconomyListener) { }
+        protected virtual void HandleUnregisterEconomyListener(IGameEconomyListener gameEconomyListener) { }
         protected virtual long HandleGetGameCurrency(GameCurrencyType gameCurrencyType) { return 0; }
         protected virtual Task<bool> HandleIncreaseCurrencyAsync(GameCurrencyType gameCurrencyType, int amount) { return null; }
         protected virtual Task<bool> HandleDecreaseCurrencyAsync(GameCurrencyType gameCurrencyType, int amount) { return null; }
@@ -22,21 +22,22 @@ namespace JKTechnologies.CommonPackage
         protected virtual Task<bool> HandleMakeSioPurchaseTransaction(GameSioPurchase gameSioPurchase) { return null; }
         protected virtual Task<bool> HandleMakeGoldPurchaseTransaction(GameGoldPurchase gameGoldPurchase) { return null; }
         protected virtual void HandleQuitGame() { }
-        protected virtual void HandleLoadImageFromUrl(Image imageObject, string imageUrl, int maxSize = 1024, GameObject loadingObject = null) {}
+        protected virtual void HandleLoadImageFromUrl(Image imageObject, string imageUrl, int maxSize = 1024, GameObject loadingObject = null) { }
         protected virtual void HandleLoadScene(string sceneName) { }
         protected virtual void HandleLoadSceneByIndex(int sceneIndex) { }
-        protected virtual bool HandleIsDeveloper(){return true;}
+        protected virtual bool HandleIsDeveloper() { return true; }
         protected virtual Task<T> HandleGetGameDataByQuestPackPoolId<T>(string campaignId) { return default; }
         protected virtual Task<bool> HandleUpdateGameDataByQuestPackPoolId(string campaignId, object gameData) { return default; }
         protected virtual void HandleEnableRealtimeWeather() { }
         protected virtual void HandleDisableRealtimeWeather() { }
-        protected virtual void HandleLoad3DModelFromUrl(string modelUrl, GameObject modelParent){}
+        protected virtual void HandleLoad3DModelFromUrl(string modelUrl, GameObject modelParent) { }
+        protected virtual string HandleGetCurrentLanguage() { return string.Empty; }
         #endregion
 
         #region User Info
         public static GameUserInfo GetUserInfo()
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return null;
@@ -48,7 +49,7 @@ namespace JKTechnologies.CommonPackage
         #region Economy
         public static void RegisterEconomyListener(IGameEconomyListener gameEconomyListener)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -57,7 +58,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static void UnregisterEconomyListener(IGameEconomyListener gameEconomyListener)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -67,7 +68,7 @@ namespace JKTechnologies.CommonPackage
 
         public static long GetCurrencyBalance(GameCurrencyType gameCurrencyType)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return 0;
@@ -77,7 +78,7 @@ namespace JKTechnologies.CommonPackage
 
         public static async Task<bool> IncreaseCurrencyAsync(GameCurrencyType gameCurrencyType, int amount)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -86,7 +87,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static async Task<bool> DecreaseCurrencyAsync(GameCurrencyType gameCurrencyType, int amount)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -97,7 +98,7 @@ namespace JKTechnologies.CommonPackage
 
         public static async Task<bool> UpdateInventoryItemInstanceData(string playersInventoryItemId, object instanceData)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -106,7 +107,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static Unity.Services.Economy.Model.PlayersInventoryItem[] GetAllPlayersInventoryItemsByDefinitionId(string inventoryItemDefinitionId)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return null;
@@ -115,7 +116,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static async Task<Unity.Services.Economy.Model.MakeVirtualPurchaseResult> MakeVirtualPurchaseByIdAsync(string virtualPurchaseId, string[] costItemIds = null)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return null;
@@ -124,7 +125,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static async Task<bool> MakeSioPurchaseTransaction(GameSioPurchase gameSioPurchase)
         {
-            if(instance == null)
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -133,7 +134,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static async Task<bool> MakeGoldPurchaseTransaction(GameGoldPurchase gameGoldPurchase)
         {
-            if(instance == null)
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -145,10 +146,10 @@ namespace JKTechnologies.CommonPackage
         #region Utilities
         public static void LoadScene(string sceneName)
         {
-            #if !SEENSIOGO
+#if !SEENSIOGO
             SceneManager.LoadScene(sceneName);
-            #endif
-            if(instance == null) 
+#endif
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -158,10 +159,10 @@ namespace JKTechnologies.CommonPackage
 
         public static void LoadSceneByIndex(int sceneIndex)
         {
-            #if !SEENSIOGO
+#if !SEENSIOGO
             SceneManager.LoadScene(sceneIndex);
-            #endif
-            if(instance == null) 
+#endif
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -170,7 +171,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static void LoadImageFromUrl(Image imageObject, string imageUrl, int maxSize = 1024, GameObject loadingObject = null)
         {
-            if(instance == null)
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -179,7 +180,7 @@ namespace JKTechnologies.CommonPackage
         }
         public static void QuitGame()
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -191,7 +192,7 @@ namespace JKTechnologies.CommonPackage
         #region IsDeveloper
         public static bool IsDeveloper()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 Debug.LogError("Game Engine Service is null");
                 return true;
@@ -203,7 +204,7 @@ namespace JKTechnologies.CommonPackage
         #region Get Game Data By Campaign
         public static async Task<T> GetGameDataByQuestPackPoolId<T>(string questPackPoolId)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return default;
@@ -213,7 +214,7 @@ namespace JKTechnologies.CommonPackage
 
         public static async Task<bool> UpdateGameDataByQuestPackPoolId(string questPackPoolId, object gameData)
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return false;
@@ -225,7 +226,7 @@ namespace JKTechnologies.CommonPackage
         #region Enable Realtime Weather
         public static void EnableRealtimeWeather()
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -235,7 +236,7 @@ namespace JKTechnologies.CommonPackage
 
         public static void DisableRealtimeWeather()
         {
-            if(instance == null) 
+            if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
                 return;
@@ -247,7 +248,7 @@ namespace JKTechnologies.CommonPackage
         #region Load 3D Model From URL
         public static void Load3DModelFromUrl(string modelUrl, GameObject modelParent)
         {
-            if(instance == null)
+            if (instance == null)
             {
                 Debug.LogError("Game Engine Service is null");
                 return;
@@ -255,5 +256,17 @@ namespace JKTechnologies.CommonPackage
             instance.HandleLoad3DModelFromUrl(modelUrl, modelParent);
         }
         #endregion
-    }   
+
+        #region Language
+        public static string GetCurrentLanguage()
+        {
+            if (instance == null)
+            {
+                return "en";
+            }
+
+            return instance.HandleGetCurrentLanguage();
+        }
+        #endregion
+    }
 }
