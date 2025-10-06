@@ -4,8 +4,17 @@
     "displayName": "SeensioGo Packages",
     "description": "SeensioGo's core game packages",
     "unity": "6000.2",
-    "authors": {
-        "name": "Duc Tran",
-        "email": "duc.tran@joikid.com"
-    }
+    "keywords": [
+        "demo",
+        "upm",
+        "template"
+    ],
+    "samples": [
+        {
+            "displayName": "Demo Sample Scenes",
+            "description": "Demonstrate core functions of SeensioGo games",
+            "path": "Sample~/"
+        }
+    ]
+    
 }
