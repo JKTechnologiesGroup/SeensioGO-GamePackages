@@ -5462,9 +5462,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1445620738}
-        m_TargetAssemblyTypeName: GoTemplateUIManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1445620743}
+        m_TargetAssemblyTypeName: JKTechnologies.CommonPackage.Samples.GoTemplateUIManager,
+          Assembly-CSharp
+        m_MethodName: OnCommonPrizeClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

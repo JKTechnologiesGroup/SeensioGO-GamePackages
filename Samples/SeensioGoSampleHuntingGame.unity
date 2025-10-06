@@ -8925,7 +8925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2102826360}
+      - m_Target: {fileID: 2102826362}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -8995,9 +8995,17 @@ PrefabInstance:
       propertyPath: top
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 801434106215420295, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1150648293700939752, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341359846121680246, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1489597901898487461, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9065,7 +9073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4767114801870238027, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4848336430639116477, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9074,6 +9082,10 @@ PrefabInstance:
     - target: {fileID: 4848336430639116477, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848336430639116477, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4854156386656305561, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_Pivot.x
@@ -9161,7 +9173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294149487951199310, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6193054369374594182, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_fontAsset
@@ -9217,7 +9229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7691074405309508935, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8156862861812717876, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9264,6 +9276,11 @@ GameObject:
 --- !u!224 &2102826361 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1226282394716007854, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
+  m_PrefabInstance: {fileID: 2102826358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2102826362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5294149487951199310, guid: 6d2935f1d2c7b4859a649a25e13e8f89, type: 3}
   m_PrefabInstance: {fileID: 2102826358}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2106008377
