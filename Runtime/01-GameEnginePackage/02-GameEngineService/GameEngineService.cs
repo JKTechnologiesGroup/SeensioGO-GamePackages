@@ -268,5 +268,5 @@ namespace JKTechnologies.CommonPackage
             return instance.HandleGetCurrentLanguage();
         }
         #endregion
-    }
+    }   
 }

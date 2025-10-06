@@ -25,8 +25,6 @@ namespace JKTechnologies.CommonPackage.Samples
         public CustomGameConditionController[] customGameConditionController;
         public List<GameRewardItemLoader> gameRewardItemLoaders = new();
 
-
-
         public async void SubmitScore()
         {
             await OnUserSubmitScoreAsync();
