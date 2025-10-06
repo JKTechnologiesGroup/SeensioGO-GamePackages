@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b4ab4739a51474787766aadd567ccf, type: 3}
+  m_Name: GameQuestManager
+  m_EditorClassIdentifier: 
+  gameConditionInstances:
+  - {fileID: 11400000, guid: ab4e492ba8e446146a333aeba9f77c4c, type: 2}
+  - {fileID: 11400000, guid: c5e0d7056a7eb4949ab2c1e2df8d909a, type: 2}
+  - {fileID: 11400000, guid: dbdae0b9997420546810daafc1db417c, type: 2}
+  - {fileID: 11400000, guid: c81c509ad5a91894aa4cdd5bd03bde3d, type: 2}
+  - {fileID: 11400000, guid: 54d0cc743887bc84793e3c4525309887, type: 2}
+  - {fileID: 11400000, guid: 5971710ca1984e4418640a7fb2c8c2f5, type: 2}
+  - {fileID: 11400000, guid: 0a8e847300e14b94abf8b38b3896b6fe, type: 2}
+  - {fileID: 11400000, guid: b8a55588938e3eb43af91bbfbfdd6397, type: 2}
+  - {fileID: 11400000, guid: d915c113c547aef4aaa792f3b512e66e, type: 2}
+  gameRankRewardInstance: {fileID: 11400000, guid: 0dd57aee581ed4424bd65f49ded57f1c,
+    type: 2}
