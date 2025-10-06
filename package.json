@@ -4,6 +4,15 @@
     "displayName": "SeensioGo Packages",
     "description": "SeensioGo's core game packages",
     "unity": "6000.2",
+    "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.services.core": "1.12.4",
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.services.authentication": "3.3.3"
+    },
     "keywords": [
         "demo",
         "upm",
@@ -16,5 +25,4 @@
             "path": "Samples/"
         }
     ]
-    
 }
