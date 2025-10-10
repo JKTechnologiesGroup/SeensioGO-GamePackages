@@ -18,12 +18,12 @@ MonoBehaviour:
   currentLanguage: vi
   onNotFound: Not Found
   languageObjects:
-  - Key: BackToSeensio
+  - Key: DAILY_LEADERBOARD
     TextValues:
     - Language: en
-      Value: BACK TO SEENSIOGO
+      Value: DAILY LEADERBOARD
     - Language: vi
-      Value: "QUAY L\u1EA0I SEENSIOGO"
+      Value: "B\u1EA2NG X\u1EBEP H\u1EA0NG H\xC0NG NG\xC0Y"
   - Key: SubmitScore
     TextValues:
     - Language: en

@@ -1,168 +1,168 @@
-﻿// 
-// SDWebImageEditor.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2019 RIZMY Studio. All rights reserved.
-//
+﻿// // 
+// // SDWebImageEditor.cs
+// // SDWebImage
+// //
+// // Created by Abdalla Tawfik
+// // Copyright © 2019 RIZMY Studio. All rights reserved.
+// //
 
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEditor;
-using System;
+// using UnityEngine;
+// using UnityEngine.UI;
+// using UnityEditor;
+// using System;
 
-[CustomEditor(typeof(SDAnimatedImage))]
-public class SDAnimatedImageEditor : Editor {
+// [CustomEditor(typeof(SDAnimatedImage))]
+// public class SDAnimatedImageEditor : Editor {
 
-    private SDAnimatedImage component;
-    private Texture logo;
-    private static bool optionsFoldout;
-    private static bool loadingIndicatorOptionsFoldout;
+//     private SDAnimatedImage component;
+//     private Texture logo;
+//     private static bool optionsFoldout;
+//     private static bool loadingIndicatorOptionsFoldout;
 
-    public void OnEnable() {
-        component = (SDAnimatedImage)target;
-        logo = (Texture)Resources.Load("editor-logo");
-    }
+//     public void OnEnable() {
+//         component = (SDAnimatedImage)target;
+//         logo = (Texture)Resources.Load("editor-logo");
+//     }
 
-    public override void OnInspectorGUI() {
-        var content = new GUIContent();
-        float inspectorWidth = EditorGUIUtility.currentViewWidth - 35;
+//     public override void OnInspectorGUI() {
+//         var content = new GUIContent();
+//         float inspectorWidth = EditorGUIUtility.currentViewWidth - 35;
 
-        // SDWebImage Logo
-        EditorGUILayout.Space();
-        GUILayout.Label(logo, new GUILayoutOption[] { GUILayout.Width(inspectorWidth), GUILayout.Height((logo.height * inspectorWidth) / logo.width), GUILayout.ExpandWidth(true) });
-        EditorGUILayout.Space();
+//         // SDWebImage Logo
+//         EditorGUILayout.Space();
+//         GUILayout.Label(logo, new GUILayoutOption[] { GUILayout.Width(inspectorWidth), GUILayout.Height((logo.height * inspectorWidth) / logo.width), GUILayout.ExpandWidth(true) });
+//         EditorGUILayout.Space();
 
-        // Animated Image Player State
-        content = new GUIContent("State", "Current state of the animated image player");
-        EditorGUILayout.EnumPopup(content, component.state);
+//         // Animated Image Player State
+//         content = new GUIContent("State", "Current state of the animated image player");
+//         EditorGUILayout.EnumPopup(content, component.state);
 
-        // Image URL
-        content = new GUIContent("Image URL", "Url of a web animated image to be loaded");
-        component.imageURL = EditorGUILayout.TextField(content, component.imageURL);
+//         // Image URL
+//         content = new GUIContent("Image URL", "Url of a web animated image to be loaded");
+//         component.imageURL = EditorGUILayout.TextField(content, component.imageURL);
 
-        // Placeholder Texture
-        content = new GUIContent("Placeholder", "Placeholder Texture to be used while loading the web image");
-        component.placeholderImage = (Texture2D)EditorGUILayout.ObjectField(content, component.placeholderImage, typeof(Texture2D), false, GUILayout.MaxHeight(16));
+//         // Placeholder Texture
+//         content = new GUIContent("Placeholder", "Placeholder Texture to be used while loading the web image");
+//         component.placeholderImage = (Texture2D)EditorGUILayout.ObjectField(content, component.placeholderImage, typeof(Texture2D), false, GUILayout.MaxHeight(16));
 
-        // Preserve Aspect
-        content = new GUIContent("Preserve Aspect", "Sets whether or not the animated image will preserve its aspect ratio (Image Component only)");
-        component.preserveAspect = EditorGUILayout.Toggle(content, component.preserveAspect);
-
-
-        EditorGUILayout.Space();
+//         // Preserve Aspect
+//         content = new GUIContent("Preserve Aspect", "Sets whether or not the animated image will preserve its aspect ratio (Image Component only)");
+//         component.preserveAspect = EditorGUILayout.Toggle(content, component.preserveAspect);
 
 
-        // SDAnimatedImage Options
-        EditorGUILayout.BeginVertical();
-
-        optionsFoldout = GUILayout.Toggle(optionsFoldout, "SDAnimatedImage Options", "Foldout", GUILayout.ExpandWidth(false));
-
-        if (optionsFoldout) {
-            // Auto Download
-            content = new GUIContent("Auto Download", "Sets whether or not the animated image will start loading automatically using the inspector image url");
-            component.autoDownload = EditorGUILayout.Toggle(content, component.autoDownload);
-
-            // Auto Play
-            content = new GUIContent("Auto Play", "Sets whether or not the animated image will start playing automatically after it is loaded");
-            component.autoPlay = EditorGUILayout.Toggle(content, component.autoPlay);
-
-            // Loop
-            content = new GUIContent("Loop", "Sets whether or not the animated image will never stop playing");
-            component.loop = EditorGUILayout.Toggle(content, component.loop);
-
-            // Memory Cache
-            content = new GUIContent("Memory Cache", "Sets whether or not the animated image will be cached in memory");
-            component.memoryCache = EditorGUILayout.Toggle(content, component.memoryCache);
-
-            // Disk Cache
-            content = new GUIContent("Disk Cache", "Sets whether or not the animated image will be cached in disk");
-            component.diskCache = EditorGUILayout.Toggle(content, component.diskCache);
-        }
-
-        EditorGUILayout.EndVertical();
+//         EditorGUILayout.Space();
 
 
-        EditorGUILayout.Space();
+//         // SDAnimatedImage Options
+//         EditorGUILayout.BeginVertical();
+
+//         optionsFoldout = GUILayout.Toggle(optionsFoldout, "SDAnimatedImage Options", "Foldout", GUILayout.ExpandWidth(false));
+
+//         if (optionsFoldout) {
+//             // Auto Download
+//             content = new GUIContent("Auto Download", "Sets whether or not the animated image will start loading automatically using the inspector image url");
+//             component.autoDownload = EditorGUILayout.Toggle(content, component.autoDownload);
+
+//             // Auto Play
+//             content = new GUIContent("Auto Play", "Sets whether or not the animated image will start playing automatically after it is loaded");
+//             component.autoPlay = EditorGUILayout.Toggle(content, component.autoPlay);
+
+//             // Loop
+//             content = new GUIContent("Loop", "Sets whether or not the animated image will never stop playing");
+//             component.loop = EditorGUILayout.Toggle(content, component.loop);
+
+//             // Memory Cache
+//             content = new GUIContent("Memory Cache", "Sets whether or not the animated image will be cached in memory");
+//             component.memoryCache = EditorGUILayout.Toggle(content, component.memoryCache);
+
+//             // Disk Cache
+//             content = new GUIContent("Disk Cache", "Sets whether or not the animated image will be cached in disk");
+//             component.diskCache = EditorGUILayout.Toggle(content, component.diskCache);
+//         }
+
+//         EditorGUILayout.EndVertical();
 
 
-        // Loading Indicator Options
-        EditorGUILayout.BeginVertical();
+//         EditorGUILayout.Space();
 
-        loadingIndicatorOptionsFoldout = GUILayout.Toggle(loadingIndicatorOptionsFoldout, "Loading Indicator Options", "Foldout", GUILayout.ExpandWidth(false));
 
-        if (loadingIndicatorOptionsFoldout) {
-            // Show Loading Indicator
-            content = new GUIContent("Show", "Sets whether or not the loading indicator will be shown while loading the web animated image");
-            component.showLoadingIndicator = EditorGUILayout.Toggle(content, component.showLoadingIndicator);
+//         // Loading Indicator Options
+//         EditorGUILayout.BeginVertical();
 
-            EditorGUI.BeginDisabledGroup(!component.showLoadingIndicator);
+//         loadingIndicatorOptionsFoldout = GUILayout.Toggle(loadingIndicatorOptionsFoldout, "Loading Indicator Options", "Foldout", GUILayout.ExpandWidth(false));
 
-            // Loading Indicator Type
-            content = new GUIContent("Type", "Sets loading indicator type");
-            component.loadingIndicatorType = (SDAnimatedImage.LoadingIndicatorType)EditorGUILayout.EnumPopup(content, component.loadingIndicatorType);
-            HandleSelectedIndicatorType(component.loadingIndicatorType);
+//         if (loadingIndicatorOptionsFoldout) {
+//             // Show Loading Indicator
+//             content = new GUIContent("Show", "Sets whether or not the loading indicator will be shown while loading the web animated image");
+//             component.showLoadingIndicator = EditorGUILayout.Toggle(content, component.showLoadingIndicator);
 
-            // Loading Indicator Scale
-            content = new GUIContent("Scale", "Sets loading indicator scale");
-            component.loadingIndicatorScale = EditorGUILayout.Slider(content, component.loadingIndicatorScale, 0.0f, 10.0f);
-            if (component.loadingIndicator != null) {
-                component.loadingIndicator.GetComponent<RectTransform>().localScale = Vector3.one * component.loadingIndicatorScale;
-            }
+//             EditorGUI.BeginDisabledGroup(!component.showLoadingIndicator);
 
-            // Loading Indicator Color
-            content = new GUIContent("Color", "Sets loading indicator color");
-            component.loadingIndicatorColor = EditorGUILayout.ColorField(content, component.loadingIndicatorColor);
-            if (component.loadingIndicator != null) {
-                component.loadingIndicator.GetComponent<Image>().color = component.loadingIndicatorColor;
-            }
+//             // Loading Indicator Type
+//             content = new GUIContent("Type", "Sets loading indicator type");
+//             component.loadingIndicatorType = (SDAnimatedImage.LoadingIndicatorType)EditorGUILayout.EnumPopup(content, component.loadingIndicatorType);
+//             HandleSelectedIndicatorType(component.loadingIndicatorType);
 
-            EditorGUI.EndDisabledGroup();
-        }
+//             // Loading Indicator Scale
+//             content = new GUIContent("Scale", "Sets loading indicator scale");
+//             component.loadingIndicatorScale = EditorGUILayout.Slider(content, component.loadingIndicatorScale, 0.0f, 10.0f);
+//             if (component.loadingIndicator != null) {
+//                 component.loadingIndicator.GetComponent<RectTransform>().localScale = Vector3.one * component.loadingIndicatorScale;
+//             }
 
-        EditorGUILayout.EndVertical();
-    }
+//             // Loading Indicator Color
+//             content = new GUIContent("Color", "Sets loading indicator color");
+//             component.loadingIndicatorColor = EditorGUILayout.ColorField(content, component.loadingIndicatorColor);
+//             if (component.loadingIndicator != null) {
+//                 component.loadingIndicator.GetComponent<Image>().color = component.loadingIndicatorColor;
+//             }
 
-    private void HandleSelectedIndicatorType(SDAnimatedImage.LoadingIndicatorType loadingIndicatorType) {
-        string loadingIndicatorPrefabsPath = "Assets/SDWebImage/Loading Indicators/Prefabs";
-        string loadingIndicatorPrefabName = GetLoadingIndicatorPrefabName(loadingIndicatorType);
+//             EditorGUI.EndDisabledGroup();
+//         }
 
-        if (String.IsNullOrEmpty(loadingIndicatorPrefabName)) {
-            DestroyImmediate(component.loadingIndicator);
-            return;
-        }
+//         EditorGUILayout.EndVertical();
+//     }
 
-        if (component.loadingIndicator != null && component.loadingIndicator.name == loadingIndicatorPrefabName) {
-            return;
-        }
+//     private void HandleSelectedIndicatorType(SDAnimatedImage.LoadingIndicatorType loadingIndicatorType) {
+//         string loadingIndicatorPrefabsPath = "Assets/SDWebImage/Loading Indicators/Prefabs";
+//         string loadingIndicatorPrefabName = GetLoadingIndicatorPrefabName(loadingIndicatorType);
 
-        DestroyImmediate(component.loadingIndicator);
+//         if (String.IsNullOrEmpty(loadingIndicatorPrefabName)) {
+//             DestroyImmediate(component.loadingIndicator);
+//             return;
+//         }
 
-        string selectedLoadingIndicatorPath = loadingIndicatorPrefabsPath + "/" + loadingIndicatorPrefabName + ".prefab";
-        GameObject loadingIndicatorPrefab = AssetDatabase.LoadAssetAtPath(selectedLoadingIndicatorPath, typeof(GameObject)) as GameObject;
+//         if (component.loadingIndicator != null && component.loadingIndicator.name == loadingIndicatorPrefabName) {
+//             return;
+//         }
 
-        if (loadingIndicatorPrefab != null) {
-            GameObject loadingIndicator = (GameObject)PrefabUtility.InstantiatePrefab(loadingIndicatorPrefab);
-            loadingIndicator.name = loadingIndicatorPrefabName;
-            loadingIndicator.transform.SetParent(component.transform);
-            loadingIndicator.GetComponent<RectTransform>().localPosition = Vector3.zero;
+//         DestroyImmediate(component.loadingIndicator);
 
-            component.loadingIndicator = loadingIndicator;
-        } else {
-            Debug.LogWarning("Make sure that " + loadingIndicatorPrefabName + " prefab is found in the following path <b>" + selectedLoadingIndicatorPath + "</b> then try again!");
-        }
-    }
+//         string selectedLoadingIndicatorPath = loadingIndicatorPrefabsPath + "/" + loadingIndicatorPrefabName + ".prefab";
+//         GameObject loadingIndicatorPrefab = AssetDatabase.LoadAssetAtPath(selectedLoadingIndicatorPath, typeof(GameObject)) as GameObject;
 
-    private string GetLoadingIndicatorPrefabName(SDAnimatedImage.LoadingIndicatorType loadingIndicatorType) {
-        switch (loadingIndicatorType) {
-            case SDAnimatedImage.LoadingIndicatorType.RoundedRect:
-                return "Rounded Rect Indicator";
-            case SDAnimatedImage.LoadingIndicatorType.Circle:
-                return "Circle Indicator";
-            case SDAnimatedImage.LoadingIndicatorType.Circles:
-                return "Circles Indicator";
-        }
+//         if (loadingIndicatorPrefab != null) {
+//             GameObject loadingIndicator = (GameObject)PrefabUtility.InstantiatePrefab(loadingIndicatorPrefab);
+//             loadingIndicator.name = loadingIndicatorPrefabName;
+//             loadingIndicator.transform.SetParent(component.transform);
+//             loadingIndicator.GetComponent<RectTransform>().localPosition = Vector3.zero;
 
-        return "";
-    }
-}
+//             component.loadingIndicator = loadingIndicator;
+//         } else {
+//             Debug.LogWarning("Make sure that " + loadingIndicatorPrefabName + " prefab is found in the following path <b>" + selectedLoadingIndicatorPath + "</b> then try again!");
+//         }
+//     }
+
+//     private string GetLoadingIndicatorPrefabName(SDAnimatedImage.LoadingIndicatorType loadingIndicatorType) {
+//         switch (loadingIndicatorType) {
+//             case SDAnimatedImage.LoadingIndicatorType.RoundedRect:
+//                 return "Rounded Rect Indicator";
+//             case SDAnimatedImage.LoadingIndicatorType.Circle:
+//                 return "Circle Indicator";
+//             case SDAnimatedImage.LoadingIndicatorType.Circles:
+//                 return "Circles Indicator";
+//         }
+
+//         return "";
+//     }
+// }
