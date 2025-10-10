@@ -10,6 +10,7 @@ namespace JKTechnologies.CommonPackage.LanguageLocalizations
         private void Awake()
         {
             string currentLanguage = GameEngineService.GetCurrentLanguage();
+            Debug.LogError("Language " + currentLanguage);
             if (string.IsNullOrWhiteSpace(currentLanguage))
             {
                 currentLanguage = defaultLanguage;

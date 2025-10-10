@@ -15,7 +15,7 @@ MonoBehaviour:
   OnLanguageChanged:
     m_PersistentCalls:
       m_Calls: []
-  currentLanguage: vi
+  currentLanguage: en
   onNotFound: Not Found
   languageObjects:
   - Key: DAILY_LEADERBOARD
@@ -24,33 +24,39 @@ MonoBehaviour:
       Value: DAILY LEADERBOARD
     - Language: vi
       Value: "B\u1EA2NG X\u1EBEP H\u1EA0NG H\xC0NG NG\xC0Y"
-  - Key: SubmitScore
+  - Key: START_GAME
     TextValues:
     - Language: en
-      Value: SUBMIT YOUR SCORE
+      Value: START<br>GAME
     - Language: vi
-      Value: "SUBMIT \u0110I\u1EC2M"
-  - Key: LoadLeaderboard
+      Value: "B\u1EAET<br>\u0110\u1EA6U"
+  - Key: RESULTS
     TextValues:
     - Language: en
-      Value: LOAD LEADERBOARD LIST
+      Value: RESULTS
     - Language: vi
-      Value: "B\u1EA2NG X\u1EBEP H\u1EA0NG"
-  - Key: GetTop1
+      Value: "K\u1EBET QU\u1EA2"
+  - Key: EXTRA_TIME
     TextValues:
     - Language: en
-      Value: GET TOP 1 SCORE
+      Value: EXTRA<br>TIME
     - Language: vi
-      Value: TOP 1 BXH
-  - Key: WatchAd
+      Value: "TH\xCAM<br>TH\u1EDCI GIAN"
+  - Key: CONFIRM_RESULTS
     TextValues:
     - Language: en
-      Value: WATCH AD
+      Value: CONFIRM<br>RESULTS
     - Language: vi
-      Value: "Xem Qu\u1EA3ng C\xE1o"
-  - Key: LoadPlayerScore
+      Value: "NH\u1EACN<br>K\u1EBET QU\u1EA2"
+  - Key: NEXT_LEVEL
     TextValues:
     - Language: en
-      Value: LOAD PLAYER SCORE
+      Value: NEXT<br>LEVEL
     - Language: vi
-      Value: "Xem \u0111i\u1EC3m c\u1EE7a b\u1EA1n"
+      Value: "M\xC0N<br>K\u1EBE"
+  - Key: WATCH_ADS
+    TextValues:
+    - Language: en
+      Value: WATCH<br>ADS
+    - Language: vi
+      Value: XEM<br>QC
