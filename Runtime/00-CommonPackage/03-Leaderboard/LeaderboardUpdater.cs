@@ -17,5 +17,10 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         {
             return leaderboardModel.GetCurrentUserRank();
         }
+
+        public long GetCurrentPlayerScore()
+        {
+            return leaderboardModel.GetCurrentPlayerScore();
+        }
     }
 }

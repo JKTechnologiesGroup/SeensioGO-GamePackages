@@ -11,6 +11,9 @@ namespace JKTechnologies.CommonPackage
     [CreateAssetMenu(fileName = "CommonPackageInitializer", menuName = "JKTechnologies/CommonPackage/CommonPackageInitializer", order = 0)]
     public class CommonPackageInitializer : ScriptableObject
     {
+        public LeaderboardModel LeaderboardModel => leaderboardModel;
+        public UnityAdsModel UnityAdsModel => unityAdsModel;
+
         [Header("Components")]
         [SerializeField] private AuthenticationModel authenticationModel;
         [SerializeField] private AnalyticsModel analyticsModel;

@@ -15,9 +15,9 @@ namespace JKTechnologies.CommonPackage.Analytics
         public void Initialize()
         {
             DeInitialize();
-            AnalyticsService.Instance.StartDataCollection();
-            Debug.LogError("Analytics Season ID:" + AnalyticsService.Instance.SessionID);
-            Debug.LogError("Analytics User ID:" + AnalyticsService.Instance.GetAnalyticsUserID());
+            // AnalyticsService.Instance?.StartDataCollection();
+            // Debug.LogError("Analytics Season ID:" + AnalyticsService.Instance.SessionID);
+            // Debug.LogError("Analytics User ID:" + AnalyticsService.Instance.GetAnalyticsUserID());
             isInitialized = true;
             OnInitialized.Invoke();
         }
@@ -27,7 +27,7 @@ namespace JKTechnologies.CommonPackage.Analytics
         public void DeInitialize()
         {
             isInitialized = false;
-            AnalyticsService.Instance.StopDataCollection();
+            // AnalyticsService.Instance?.StopDataCollection();
         }
         #endregion
     }

@@ -13,7 +13,16 @@ namespace JKTechnologies.CommonPackage.Leaderboard
     [CreateAssetMenu(fileName = "LeaderboardModel", menuName = "JKTechnologies/CommonPackage/Leaderboard/LeaderboardModel", order = 0)]
     public class LeaderboardModel : ScriptableObject
     {
-        public bool IsInitialized => isInitialized;
+        public bool IsInitialized {
+            get
+            {
+                if (IsMockup())
+                    return true;
+                    
+                return isInitialized;
+            }
+        }
+
         public UnityEvent OnInitialized = new();
         public UnityEvent OnLeaderboardUpdated = new();
         [SerializeField] private GameLeaderboardConfig leaderboardConfig;
@@ -23,9 +32,27 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         [SerializeField] private LeaderboardEntry currentPlayerLeaderboardEntry = null;
         [SerializeField] private bool isInitialized = false;
 
+        [Header("Mockup Data")]
+        [SerializeField] private bool isMockup = false;
+        [SerializeField] private long mockupPlayerScore = 0;
+        private bool IsMockup()
+        {
+#if !UNITY_EDITOR
+                return false;
+#endif
+            return isMockup;
+        }
+
+        private LeaderboardEntry GetMockEntry()
+        {
+            return new LeaderboardEntry("MockPlayerId", "MockPlayerName", 0, mockupPlayerScore);
+        }
         #region Initialize
         public async Task Initialize(GameLeaderboardConfig leaderboardConfig)
         {
+            if (IsMockup())
+                return;
+
             DeInitialize();
             this.leaderboardConfig = leaderboardConfig;
             await LoadLeaderboard();
@@ -36,6 +63,9 @@ namespace JKTechnologies.CommonPackage.Leaderboard
 
         private async Task LoadLeaderboard()
         {
+            if (isMockup)
+                return;
+
             leaderboardScoresPageList.Clear();
             LeaderboardScoresPage leaderboardScoresPage = await LeaderboardsService.Instance.GetScoresAsync(leaderboardConfig.leaderboardId, new GetScoresOptions{Offset = Offset, Limit = Limit, IncludeMetadata = true});
             if(leaderboardScoresPage != null)
@@ -46,10 +76,14 @@ namespace JKTechnologies.CommonPackage.Leaderboard
 
         private async Task LeaderPlayerLeaderboardEntry()
         {
+            
+            if (IsMockup())
+                return;
+                
             try
             {
-                LeaderboardEntry playerLeaderboardEntry = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardConfig.leaderboardId, new GetPlayerScoreOptions(){IncludeMetadata = true});
-                if(playerLeaderboardEntry != null)
+                LeaderboardEntry playerLeaderboardEntry = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardConfig.leaderboardId, new GetPlayerScoreOptions() { IncludeMetadata = true });
+                if (playerLeaderboardEntry != null)
                 {
                     currentPlayerLeaderboardEntry = playerLeaderboardEntry;
                 }
@@ -58,7 +92,7 @@ namespace JKTechnologies.CommonPackage.Leaderboard
                     Debug.LogError("Current player do not have leaderboard record");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.LogError("Exception: " + ex.Message);
             }
@@ -72,6 +106,9 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         }
         public LeaderboardEntry[] GetLeaderboardEntries(int offset)
         {
+            if (IsMockup())
+                return new LeaderboardEntry[1]{GetMockEntry()} ;
+
             Debug.LogError("Get leaderboard entries by offset: " + offset);
             LeaderboardScoresPage leaderboardScoresPage = leaderboardScoresPageList.FirstOrDefault(item => item.Offset == offset);
             if(leaderboardScoresPage != null)
@@ -86,6 +123,9 @@ namespace JKTechnologies.CommonPackage.Leaderboard
 
         public async Task<LeaderboardEntry[]> GetLeaderboardEntriesAsync(int offset)
         {
+            if (IsMockup())
+                return new LeaderboardEntry[1]{GetMockEntry()} ;
+
             LeaderboardEntry[] leaderboardEntries = GetLeaderboardEntries(offset);
             if(leaderboardEntries == null || leaderboardEntries.Length == 0)
             {
@@ -101,6 +141,9 @@ namespace JKTechnologies.CommonPackage.Leaderboard
 
         public LeaderboardEntry GetPlayerLeaderboardEntry()
         {
+            if (IsMockup())
+                return GetMockEntry();
+
             return currentPlayerLeaderboardEntry;
         }
         #endregion
@@ -108,6 +151,12 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         #region Update score
         public async Task UpdatePlayerScore(int newScore)
         {
+            if (IsMockup())
+            {
+                mockupPlayerScore = newScore;
+                return;
+            }
+
             GameInstanceModel gameInstanceModel = new();
             GameUserInfo gameUserInfo = gameInstanceModel.UserService.GetUserInfo();
 
@@ -147,11 +196,26 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         #region Get current user rank
         public long GetCurrentUserRank()
         {
-            if(currentPlayerLeaderboardEntry == null)   
+            if (IsMockup())
+                return 0;
+
+            if (currentPlayerLeaderboardEntry == null)
             {
                 return long.MaxValue;
             }
             return currentPlayerLeaderboardEntry.Rank + 1;
+        }
+
+        public long GetCurrentPlayerScore()
+        {
+            if (IsMockup())
+                return mockupPlayerScore;
+
+            if (currentPlayerLeaderboardEntry == null)
+            {
+                return long.MinValue;
+            }
+            return (long)currentPlayerLeaderboardEntry.Score;
         }
         #endregion
 

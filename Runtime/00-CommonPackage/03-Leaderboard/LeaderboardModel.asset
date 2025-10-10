@@ -18,7 +18,11 @@ MonoBehaviour:
   OnLeaderboardUpdated:
     m_PersistentCalls:
       m_Calls: []
-  leaderboardConfig: {fileID: 11400000, guid: b90354593d0ce4cca8f37ad2fa34c261, type: 2}
+  leaderboardConfig:
+    leaderboardId: 
+    leaderboardName: 
   Offset: 0
   Limit: 10
   isInitialized: 0
+  isMockup: 1
+  mockupPlayerScore: 0

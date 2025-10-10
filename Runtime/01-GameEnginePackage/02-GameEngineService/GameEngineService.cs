@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace JKTechnologies.CommonPackage
 {

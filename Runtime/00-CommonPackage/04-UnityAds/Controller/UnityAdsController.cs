@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -7,11 +8,11 @@ namespace JKTechnologies.CommonPackage.Ads
     // Banner
     // Interstitial
     // Rewarded
-   public class UnityAdsController : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
+    public class UnityAdsController : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
     {
         [Header("Dependencies")]
         [SerializeField] private UnityAdsModel unityAdsModel;
-        
+
         [Header("Settings")]
         [SerializeField] private GameUnityAdsConfig currentConfig;
         [SerializeField] private UnityAdType adType = UnityAdType.Interstitial;
@@ -19,15 +20,17 @@ namespace JKTechnologies.CommonPackage.Ads
         [SerializeField] private bool forceShow = false;
         [SerializeField] private bool showBanner = false;
         [SerializeField] private BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
-        
+
         [Header("State")]
         [SerializeField] private string currentPlacementID;
         [SerializeField] private bool isAdLoaded = false;
 
+        private Action showAdCallback;
+
         #region Initialize
         private void Start()
         {
-            if(unityAdsModel.IsInitialized)
+            if (unityAdsModel.IsInitialized)
             {
                 Setup();
             }
@@ -36,7 +39,7 @@ namespace JKTechnologies.CommonPackage.Ads
                 unityAdsModel.OnInitialized.AddListener(Setup);
             }
         }
- 
+
         private void OnDestroy()
         {
             unityAdsModel.OnInitialized.RemoveListener(Setup);
@@ -44,7 +47,7 @@ namespace JKTechnologies.CommonPackage.Ads
             unityAdsModel.OnUnityAdsShowComplete.RemoveListener(OnAdShowCompleted);
         }
         #endregion
-        
+
         #region Setup
         public void Setup()
         {
@@ -71,16 +74,16 @@ namespace JKTechnologies.CommonPackage.Ads
 
         private void OnStartShowAdEvent(UnityAdType unityAdType)
         {
-            if(unityAdType != this.adType)
+            if (unityAdType != this.adType)
             {
                 return;
             }
-           ShowAd();
+            ShowAd();
         }
 
         private void OnAdShowCompleted()
         {
-            if(loadPreAd)
+            if (loadPreAd)
             {
                 LoadAdPre();
             }
@@ -92,7 +95,7 @@ namespace JKTechnologies.CommonPackage.Ads
         {
             Debug.LogError("Init Success");
             unityAdsModel.OnInitializationComplete.Invoke();
-            if(loadPreAd)
+            if (loadPreAd)
             {
                 LoadAdPre();
             }
@@ -115,12 +118,12 @@ namespace JKTechnologies.CommonPackage.Ads
         public void LoadAd()
         {
             Debug.LogError("Begin loading the ad");
-            if(isAdLoaded)
+            if (isAdLoaded)
             {
                 Debug.LogError("Ad already loaded");
                 return;
             }
-            switch(adType)
+            switch (adType)
             {
                 case UnityAdType.Banner:
                     Advertisement.Load(currentConfig.bannerPlacementID, this);
@@ -145,7 +148,7 @@ namespace JKTechnologies.CommonPackage.Ads
             unityAdsModel.OnUnityAdsAdLoaded.Invoke();
             currentPlacementID = placementId;
             isAdLoaded = true;
-            if(forceShow)
+            if (forceShow)
             {
                 forceShow = false;
                 ShowAd();
@@ -157,6 +160,9 @@ namespace JKTechnologies.CommonPackage.Ads
             Debug.LogError($"Load Failed: [{error}:{placementId}] {message}");
             unityAdsModel.OnUnityAdsFailedToLoad.Invoke();
             isAdLoaded = false;
+
+            showAdCallback?.Invoke();
+            showAdCallback = null;
         }
         #endregion
 
@@ -165,6 +171,9 @@ namespace JKTechnologies.CommonPackage.Ads
         {
             Debug.LogError($"OnUnityAdsShowFailure: [{error}]: {message}");
             unityAdsModel.OnUnityAdsShowFailed.Invoke();
+
+            showAdCallback?.Invoke();
+            showAdCallback = null;
         }
 
         public void OnUnityAdsShowStart(string placementId)
@@ -185,11 +194,14 @@ namespace JKTechnologies.CommonPackage.Ads
             currentPlacementID = null;
             isAdLoaded = false;
             unityAdsModel.OnUnityAdsShowComplete.Invoke();
+
+            showAdCallback?.Invoke();
+            showAdCallback = null;
         }
         #endregion
 
         #region Handle events
-        public void ShowBanner() 
+        public void ShowBanner()
         {
             if (showBanner)
             {
@@ -204,7 +216,7 @@ namespace JKTechnologies.CommonPackage.Ads
 
         private void ShowAd()
         {
-            if(!isAdLoaded)
+            if (!isAdLoaded)
             {
                 forceShow = true;
                 LoadAd();
@@ -214,5 +226,11 @@ namespace JKTechnologies.CommonPackage.Ads
             Advertisement.Show(currentPlacementID, this);
         }
         #endregion
+
+        public void ShowAdWithCallback(Action callback)
+        {
+            this.showAdCallback = callback;
+            ShowAd();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -55,15 +56,20 @@ namespace JKTechnologies.CommonPackage
             return gameRewardItems;
         }
 
+        public GameRewardItem GetReward()
+        {
+            return gameRewardItems?.First();
+        }
+
         public async Task<bool> CompleteCondition()
         {
-            if(!isActive)
+            if (!isActive)
             {
                 return false;
             }
 
             bool isSuccess = await GameQuestService.CompleteCondition(conditionRewardId, gameCondition.id);
-            if(!isSuccess)
+            if (!isSuccess)
             {
                 Debug.LogError("Failed to complete this condition: " + gameCondition.id);
                 return false;

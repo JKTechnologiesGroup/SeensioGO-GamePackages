@@ -11,7 +11,7 @@ namespace JKTechnologies.CommonPackage
         {
             if(UnityServices.State == ServicesInitializationState.Uninitialized)
             {
-                await UnityServices.InitializeAsync();
+                // await UnityServices.InitializeAsync();
             }
             commonPackageInitializer.Initialize();
         }
