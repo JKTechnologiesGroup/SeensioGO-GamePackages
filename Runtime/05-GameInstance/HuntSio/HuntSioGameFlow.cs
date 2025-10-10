@@ -11,9 +11,9 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private GameObject startingPanel;
         [SerializeField] private GameObject targetScorePanel;
         [SerializeField] private GameObject inGamePanel;
+        [SerializeField] private GameObject leaderboardPanel;
         [SerializeField] private GameObject finishLevelPanel;
         [SerializeField] private GameObject endGamePanel;
-        [SerializeField] private GameObject leaderboardPanel;
         [SerializeField] private Button watchAdsButton;
         [SerializeField] private float targetScoreTime = 1f;
         private static bool isGameStarted = false;
@@ -159,7 +159,6 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             GameEngineManager.Instance.SubmitPlayerScore((passCondition) =>
             {
                 Debug.LogError("On user confirm result: " + passCondition);
-                endGamePanel.SetActive(true);
                 GameEngineManager.Instance.QuitGame();
             });
         }
