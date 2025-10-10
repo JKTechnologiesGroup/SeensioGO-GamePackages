@@ -45,7 +45,7 @@ namespace JKTechnologies.CommonPackage.Leaderboard
 
         private LeaderboardEntry GetMockEntry()
         {
-            return new LeaderboardEntry("MockPlayerId", "MockPlayerName", 0, mockupPlayerScore);
+            return new LeaderboardEntry("PlayerId", "Abc", 0, mockupPlayerScore);
         }
         #region Initialize
         public async Task Initialize(GameLeaderboardConfig leaderboardConfig)

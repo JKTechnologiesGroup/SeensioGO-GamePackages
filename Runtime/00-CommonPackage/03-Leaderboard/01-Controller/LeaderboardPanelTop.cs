@@ -56,6 +56,8 @@ namespace JKTechnologies.CommonPackage.Leaderboard
                 Debug.LogError("Leaderboard entry: " + leaderboardEntries[i].Score);
                 UserRankingItem userRankingItem = Instantiate(userRankingItemPrefab, userRankingItemHolder);
                 userRankingItem.Setup(leaderboardEntries[i]);
+                userRankingItem.gameObject.SetActive(true);
+                
             }
 
             LeaderboardEntry playerLeaderboardEntry = leaderboardModel.GetPlayerLeaderboardEntry();
