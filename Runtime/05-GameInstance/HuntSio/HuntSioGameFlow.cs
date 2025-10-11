@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using JKTechnologies.SeensioGo.GameInstances;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
     public class HuntSioGameFlow : MonoBehaviour
     {
         [Header("[ Components ]")]
+        [SerializeField] private GameObject loadingPanel;
         [SerializeField] private GameObject startingPanel;
         [SerializeField] private GameObject targetScorePanel;
         [SerializeField] private GameObject inGamePanel;
@@ -39,7 +41,6 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             if (!isGameStarted)
             {
                 ShowStartingPanel();
-                isGameStarted = true;
             }
             else
             {
@@ -67,9 +68,12 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         #endregion
 
         #region Start Games
-        private void ShowStartingPanel()
+        private async Task ShowStartingPanel()
         {
+            await Task.Delay(500);
             startingPanel.SetActive(true);
+            loadingPanel.SetActive(false);
+            isGameStarted = true;
         }
 
         public void StartGame()

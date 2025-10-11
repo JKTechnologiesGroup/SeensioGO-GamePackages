@@ -27,10 +27,10 @@ public class WebAudioCache : Singleton<WebAudioCache> {
         base.Awake();
 
         Init();
-        MainThread.instance.Init();
-        ThreadPool.QueueUserWorkItem((state) => {
-            DeleteOldFilesOnDisk();
-        });
+        // MainThread.instance.Init();
+        // ThreadPool.QueueUserWorkItem((state) => {
+        //     DeleteOldFilesOnDisk();
+        // });
     }
 
     private void Init() {
