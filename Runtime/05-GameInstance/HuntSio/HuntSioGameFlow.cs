@@ -11,8 +11,8 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [Header("[ Components ]")]
         [SerializeField] private GameObject loadingPanel;
         [SerializeField] private GameObject startingPanel;
-        [SerializeField] private GameObject targetScorePanel;
         [SerializeField] private GameObject inGamePanel;
+        [SerializeField] private GameObject targetScorePanel;
         [SerializeField] private GameObject leaderboardPanel;
         [SerializeField] private GameObject finishLevelPanel;
         [SerializeField] private GameObject endGamePanel;
@@ -84,12 +84,12 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         private IEnumerator StartGameCoroutine()
         {
             startingPanel.SetActive(false);
+            gameInstanceStarter.StartGame();
+            inGamePanel.SetActive(true);
+
             targetScorePanel.SetActive(true);
             yield return new WaitForSeconds(targetScoreTime);
             targetScorePanel.SetActive(false);
-
-            gameInstanceStarter.StartGame();
-            inGamePanel.SetActive(true);
         }
 
         private void StartNewLevel()

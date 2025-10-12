@@ -60,3 +60,9 @@ MonoBehaviour:
       Value: WATCH<br>ADS
     - Language: vi
       Value: XEM<br>QC
+  - Key: YOU
+    TextValues:
+    - Language: en
+      Value: YOU
+    - Language: vi
+      Value: "B\u1EA0N"
