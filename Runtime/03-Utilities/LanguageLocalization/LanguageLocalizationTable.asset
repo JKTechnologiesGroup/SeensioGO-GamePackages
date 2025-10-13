@@ -23,7 +23,7 @@ MonoBehaviour:
     - Language: en
       Value: DAILY LEADERBOARD
     - Language: vi
-      Value: "B\u1EA2NG X\u1EBEP H\u1EA0NG H\xC0NG NG\xC0Y"
+      Value: "BXH H\xC0NG NG\xC0Y"
   - Key: START_GAME
     TextValues:
     - Language: en

@@ -7,12 +7,12 @@ namespace JKTechnologies.CommonPackage.Leaderboard
     public class LeaderboardTopPanel : MonoBehaviour
     {
         [Header("Dependencies")]
-        [SerializeField] private int top;
+        // [SerializeField] private int top;
         [SerializeField] private LeaderboardModel leaderboardModel;
 
         [Header("UI Components")]
-        [SerializeField] private UserRankingItem userRankingItemPrefab;
-        [SerializeField] private Transform userRankingItemHolder;
+        [SerializeField] private UserRankingItem top1RankingItem;
+        // [SerializeField] private Transform userRankingItemHolder;
         [SerializeField] private UserRankingItem playerRankingItem;
         [SerializeField] private bool isStarted = false;
         private void Start()
@@ -43,22 +43,28 @@ namespace JKTechnologies.CommonPackage.Leaderboard
         private void LoadTopPlayers()
         {
             isStarted = true;
-            foreach(Transform child in userRankingItemHolder)
-            {
-                Destroy(child.gameObject);
-            }
+            // foreach(Transform child in userRankingItemHolder)
+            // {
+            //     Destroy(child.gameObject);
+            // }
 
-            Debug.LogError("LoadTopPlayers");
+            // Debug.LogError("LoadTopPlayers");
             LeaderboardEntry[] leaderboardEntries = leaderboardModel.GetLeaderboardEntries(0);
-            for(int i =0; i < top && i < leaderboardEntries.Length; ++i)
+            
+            if(leaderboardEntries.Length > 0)
             {
-                Debug.LogError("Number spawned: " + i);
-                Debug.LogError("Leaderboard entry: " + leaderboardEntries[i].Score);
-                UserRankingItem userRankingItem = Instantiate(userRankingItemPrefab, userRankingItemHolder);
-                userRankingItem.Setup(leaderboardEntries[i]);
-                userRankingItem.gameObject.SetActive(true);
-                
+                top1RankingItem.Setup(leaderboardEntries[0]);
+                top1RankingItem.gameObject.SetActive(true);
             }
+            // for(int i =0; i < top && i < leaderboardEntries.Length; ++i)
+            // {
+            //     Debug.LogError("Number spawned: " + i);
+            //     Debug.LogError("Leaderboard entry: " + leaderboardEntries[i].Score);
+            //     UserRankingItem userRankingItem = Instantiate(userRankingItemPrefab, userRankingItemHolder);
+            //     userRankingItem.Setup(leaderboardEntries[i]);
+            //     userRankingItem.gameObject.SetActive(true);
+                
+            // }
 
             LeaderboardEntry playerLeaderboardEntry = leaderboardModel.GetPlayerLeaderboardEntry();
             if(playerLeaderboardEntry != null)
