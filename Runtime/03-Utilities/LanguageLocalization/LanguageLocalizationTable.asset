@@ -57,12 +57,18 @@ MonoBehaviour:
   - Key: WATCH_ADS
     TextValues:
     - Language: en
-      Value: WATCH<br>ADS
+      Value: WATCH ADS
     - Language: vi
-      Value: XEM<br>QC
+      Value: XEM QC
   - Key: YOU
     TextValues:
     - Language: en
       Value: YOU
     - Language: vi
       Value: "B\u1EA0N"
+  - Key: LEVEL_FINISHED
+    TextValues:
+    - Language: en
+      Value: LEVEL FINISHED!
+    - Language: vi
+      Value: "\u0110\xC3 TH\u1EAENG M\xC0N N\xC0Y!"
