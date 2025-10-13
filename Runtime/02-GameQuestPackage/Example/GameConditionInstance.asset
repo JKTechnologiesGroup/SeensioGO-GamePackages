@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe51f822ebaea4f30847a9d8d6d16c72, type: 3}
   m_Name: GameConditionInstance
   m_EditorClassIdentifier: 
+  OnActiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
   gameConditionId: RP
   gameCondition:
     id: RP
-    name: 
+    name: R
     stringValue: 
-    numberValue: 0
-    conditionType: 0
+    numberValue: 10
+    conditionType: 4
     isCompleted: 0
   gameRewardItems: []
   conditionRewardId: 
   isActive: 0
+  index: 0

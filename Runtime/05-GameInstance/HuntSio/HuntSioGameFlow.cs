@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Threading.Tasks;
+using JKTechnologies.CommonPackage.LanguageLocalizations;
 using JKTechnologies.SeensioGo.GameInstances;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,8 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private GameObject startingPanel;
         [SerializeField] private GameObject inGamePanel;
         [SerializeField] private GameObject targetScorePanel;
+        [SerializeField] private TextMeshProUGUI targetScoreText;
+        [SerializeField] private GameObject questCompletedPanel;
         [SerializeField] private GameObject leaderboardPanel;
         [SerializeField] private GameObject finishLevelPanel;
         [SerializeField] private GameObject endGamePanel;
@@ -20,8 +24,10 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private float targetScoreTime = 1f;
         private static bool isGameStarted = false;
         private static bool isAdsWatched = false;
+        private static bool isQuestCompltedPanelShown = false;
 
         private IGameInstanceStartListener gameInstanceStarter;
+        private IGameInstanceProgressListener gameInstanceProgressListener;
         private IGameInstanceAdsListener gameInstanceAdsListener;
         private IGameInstanceNextLevelListner gameInstanceNextLevelListner;
         private IGameLeaderboardListener gameLeaderboardListener;
@@ -40,10 +46,15 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             this.gameInstanceStarter = gameInstanceStarter;
             if (!isGameStarted)
             {
+                var targetScore = GameEngineManager.Instance.GetTargetScore();
+                gameInstanceProgressListener.SetupTargetScore(targetScore, 0);
                 ShowStartingPanel();
             }
             else
             {
+                var targetScore = GameEngineManager.Instance.GetTargetScore();
+                var currentPlayerScore = GameEngineManager.Instance.GetCurrentPlayerScore();
+                gameInstanceProgressListener.SetupTargetScore(targetScore, currentPlayerScore);
                 StartNewLevel();
             }
         }
@@ -56,6 +67,11 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             this.gameInstanceAdsListener = gameInstanceAdsListener;
         }
 
+        public void ListenToProgress(IGameInstanceProgressListener gameInstanceProgressListener)
+        {
+            this.gameInstanceProgressListener = gameInstanceProgressListener;
+        }
+
         public void ListenToNextLevel(IGameInstanceNextLevelListner gameInstanceNextLevelListner)
         {
             this.gameInstanceNextLevelListner = gameInstanceNextLevelListner;
@@ -65,6 +81,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         {
             this.gameLeaderboardListener = gameLeaderboardListener;
         }
+
         #endregion
 
         #region Start Games
@@ -86,6 +103,9 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             startingPanel.SetActive(false);
             gameInstanceStarter.StartGame();
             inGamePanel.SetActive(true);
+
+            var targetScore = GameEngineManager.Instance.GetTargetScore();
+            targetScoreText.text = LanguageLocalizationHelper.LookupLanguage("TARGET_SCORE").Replace("[n]", targetScore.ToString());
 
             targetScorePanel.SetActive(true);
             yield return new WaitForSeconds(targetScoreTime);
@@ -112,6 +132,20 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             leaderboardPanel.SetActive(false);
             inGamePanel.SetActive(true);
             gameLeaderboardListener.OnHideLeaderboard();
+        }
+        #endregion
+
+        #region Show Quest Completed Panel
+        public async void ShowQuestCompletedPanel()
+        {
+            if (isQuestCompltedPanelShown)
+                return;
+
+            isQuestCompltedPanelShown = true;
+
+            questCompletedPanel.SetActive(true);
+            await Task.Delay(3000);
+            questCompletedPanel.SetActive(false);
         }
         #endregion
 
@@ -163,6 +197,9 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             GameEngineManager.Instance.SubmitPlayerScore((passCondition) =>
             {
                 Debug.LogError("On user confirm result: " + passCondition);
+                isGameStarted = false;
+                isAdsWatched = false;
+                isQuestCompltedPanelShown = false;
                 GameEngineManager.Instance.QuitGame();
             });
         }

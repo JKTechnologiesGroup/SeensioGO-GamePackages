@@ -72,3 +72,15 @@ MonoBehaviour:
       Value: LEVEL FINISHED!
     - Language: vi
       Value: "\u0110\xC3 TH\u1EAENG M\xC0N N\xC0Y!"
+  - Key: TARGET_SCORE
+    TextValues:
+    - Language: en
+      Value: TARGET SCORE [n]!
+    - Language: vi
+      Value: "M\u1EE4C TI\xCAU [n] \u0110I\u1EC2M!"
+  - Key: QUEST_COMPLETED
+    TextValues:
+    - Language: en
+      Value: QUEST COMPLETED!
+    - Language: vi
+      Value: "HO\xC0N TH\xC0NH NHI\u1EC6M V\u1EE4!"

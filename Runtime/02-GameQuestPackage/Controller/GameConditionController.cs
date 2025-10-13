@@ -12,7 +12,6 @@ namespace JKTechnologies.CommonPackage
             Debug.LogError("Not implement yet" + stringValue);
         }
 
-
         public string GetConditionName()
         {
             GameCondition gameCondition = gameConditionInstance.GetGameCondition();

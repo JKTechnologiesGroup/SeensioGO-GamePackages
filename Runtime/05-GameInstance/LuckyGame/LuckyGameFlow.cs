@@ -17,7 +17,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.LuckyGames
         [SerializeField] private GameObject resultPanel;
 
         private IGameInstanceStartListener gameInstanceStarter;
-
+        
         #region Init
         public void Init(IGameInstanceStartListener gameInstanceStarter)
         {

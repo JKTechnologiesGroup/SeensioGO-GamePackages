@@ -8,6 +8,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.Samples
     {
         public UnityEvent<int> OnGameOver;
         public UnityEvent<int> OnFinishedLevel;
+        public UnityEvent<int> OnPlayerScoreUpdated;
         [SerializeField] private TextMeshProUGUI currentPlayerScoreText;
         [SerializeField] private static int currentPlayerScore;
 
@@ -20,6 +21,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.Samples
         {
             currentPlayerScore = currentPlayerScore += 1;
             currentPlayerScoreText.text = $"Player Score: {currentPlayerScore}";
+            OnPlayerScoreUpdated.Invoke(currentPlayerScore);
         }
 
         public void GameOver()

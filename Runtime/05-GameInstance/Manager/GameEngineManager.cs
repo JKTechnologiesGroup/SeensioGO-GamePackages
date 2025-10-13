@@ -90,6 +90,17 @@ namespace JKTechnologies.SeensioGo.GameEngines
         }
         #endregion
 
+        #region Scores
+        public int GetTargetScore()
+        {
+            return (int)gameConditionController.GetConditionValue();
+        }
+        public int GetCurrentPlayerScore()
+        {
+            return (int)leaderboardUpdater.GetCurrentPlayerScore();
+        }
+        #endregion
+
         #region Show Ads
         public void ShowAds(Action callback)
         {
