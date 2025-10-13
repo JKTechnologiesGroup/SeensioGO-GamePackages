@@ -28,6 +28,11 @@
             "displayName": "Demo Sample Scenes",
             "description": "Demonstrate core functions of SeensioGo games",
             "path": "Samples/"
+        },
+        {
+            "displayName": "Runtime scripts",
+            "description": "Required runtime script to register meta address for Unity",
+            "path": "Runtime/"
         }
     ]
 }
