@@ -20,13 +20,19 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private GameObject leaderboardPanel;
         [SerializeField] private GameObject finishLevelPanel;
         [SerializeField] private GameObject endGamePanel;
-        [SerializeField] private Button watchAdsButton;
+        
         [SerializeField] private float targetScoreTime = 1f;
         [SerializeField] private float ingameDurationSeconds = 60f;
         [SerializeField] private CountdownTimer inGameCountdownTimer;
         private static bool isGameStarted = false;
-        private static bool isAdsWatched = false;
+        public static bool isAdsWatched = false;
         private static bool isQuestCompltedPanelShown = false;
+
+        [Header("[ EndGame Components ]")]
+        [SerializeField] private CountdownTimer watchAdsCountdownTimer;
+        [SerializeField] private Button watchAdsButton;
+        [SerializeField] private GameObject confirmResultsButton;
+        [SerializeField] private Animator endGameAnimator;
 
         private IGameInstanceStartListener gameInstanceStarter;
         private IGameInstanceProgressListener gameInstanceProgressListener;
@@ -38,8 +44,10 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         {
             if (isAdsWatched)
             {
-                watchAdsButton.interactable = false;
+                // confirmResultsButton.
             }
+            watchAdsButton.interactable = !isAdsWatched;
+            watchAdsButton.gameObject.SetActive(!isAdsWatched);
         }
 
         #region Init
@@ -175,21 +183,43 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         public void OnGameOver(int playerScore)
         {
             inGamePanel.SetActive(false);
-            GameEngineManager.Instance.UpdatePlayerScore(playerScore, () =>
+            watchAdsCountdownTimer.StopTimer();
+            watchAdsCountdownTimer.gameObject.SetActive(!isAdsWatched);
+            GameEngineManager.Instance.UpdatePlayerScore(playerScore, async () =>
             {
                 endGamePanel.SetActive(true);
+                watchAdsCountdownTimer.gameObject.SetActive(!isAdsWatched);
+                watchAdsButton.interactable = !isAdsWatched;
+                watchAdsButton.gameObject.SetActive(!isAdsWatched);
+                if (isAdsWatched)
+                {
+                    confirmResultsButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 90f);
+                    confirmResultsButton.GetComponent<CanvasGroup>().alpha = 1.0f;
+                    confirmResultsButton.SetActive(true);                    
+                    endGameAnimator.Play("ShowConfirm");
+                }
+                await Task.Delay(2000);
+                watchAdsCountdownTimer.StartTimer();
             });
+        }
+
+        public async void ShowEndGameConfirmButton()
+        {
+            await Task.Delay(500);
+            endGameAnimator.Play("ShowConfirm");
         }
         #endregion
 
         #region Watch Ads
         public void WatchAdsToEarnBonus()
         {
+            watchAdsCountdownTimer.StopTimer();
             GameEngineManager.Instance.ShowAds(() =>
             {
                 isAdsWatched = true;
                 endGamePanel.SetActive(false);
                 inGamePanel.SetActive(true);
+                targetScorePanel.GetComponent<Animator>().Play("Minimize");
                 gameInstanceAdsListener?.OnAdSCompleted();
             });
         }
