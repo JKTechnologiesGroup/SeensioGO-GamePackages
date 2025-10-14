@@ -40,7 +40,12 @@ namespace JKTechnologies.CommonPackage
             if (instance == null)
             {
                 Debug.LogError("GameEngineService is null");
-                return null;
+                return new()
+                {
+                    userId = "simulatorId",
+                    displayName = "Simulator",
+                    photoUrl = ""
+                };
             }
             return instance.HandleGetUserInfo();
         }
