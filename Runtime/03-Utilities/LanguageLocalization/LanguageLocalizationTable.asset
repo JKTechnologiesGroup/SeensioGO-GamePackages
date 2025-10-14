@@ -41,7 +41,7 @@ MonoBehaviour:
     - Language: en
       Value: EXTRA<br>TIME
     - Language: vi
-      Value: "TH\xCAM<br>TH\u1EDCI GIAN"
+      Value: "TH\xCAM<br>PH\xDAT"
   - Key: CONFIRM_RESULTS
     TextValues:
     - Language: en
