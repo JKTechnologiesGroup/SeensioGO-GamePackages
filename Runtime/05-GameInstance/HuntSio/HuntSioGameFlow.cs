@@ -22,6 +22,8 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private Button watchAdsButton;
         [SerializeField] private float targetScoreTime = 1f;
+        [SerializeField] private float ingameDurationSeconds = 60f;
+        [SerializeField] private CountdownTimer inGameCountdownTimer;
         private static bool isGameStarted = false;
         private static bool isAdsWatched = false;
         private static bool isQuestCompltedPanelShown = false;
@@ -109,7 +111,9 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
 
             targetScorePanel.SetActive(true);
             yield return new WaitForSeconds(targetScoreTime);
-            targetScorePanel.SetActive(false);
+            targetScorePanel.GetComponent<Animator>().Play("Minimize");
+            inGameCountdownTimer.countdownDuration = ingameDurationSeconds;
+            inGameCountdownTimer.StartTimer();
         }
 
         private void StartNewLevel()
