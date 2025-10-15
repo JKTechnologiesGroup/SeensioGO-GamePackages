@@ -2621,6 +2621,8 @@ MonoBehaviour:
   targetScoreTime: 3
   ingameDurationSeconds: 60
   inGameCountdownTimer: {fileID: 1235279237}
+  isGameStarted: 0
+  isAdsWatched: 0
   watchAdsCountdownTimer: {fileID: 562385140}
   watchAdsButton: {fileID: 2113149251}
   confirmResultsButton: {fileID: 1655918145}
@@ -5910,7 +5912,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517111976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035d239896e9c4170b983f53140425f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 37dc12f7a22cc447abc1351ef44a9b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioHandler
   url: https://firebasestorage.googleapis.com/v0/b/seensio-app.appspot.com/o/app-audios%2Fchill-lofi-music-409356.mp3?alt=media&token=b4da11bc-35b0-44b5-b6b4-d0636e014e7b

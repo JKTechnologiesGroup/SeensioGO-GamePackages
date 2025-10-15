@@ -42,10 +42,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 841069232303030674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d54f2e41501434c7ca48274458a58ff3, type: 3}
+  m_Script: {fileID: 11500000, guid: d2414681d95ea420bbc036b6422b7d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioManager
-  loadedAudioClips: []
 --- !u!114 &5212571163669037422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 841069232303030674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5356df6c0e234423e9fc366f792b2fbb, type: 3}
+  m_Script: {fileID: 11500000, guid: ce3d6db88d3c640a6bf14cc79ecd3efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WebAudioManager
+  loadedAudioClips: []
