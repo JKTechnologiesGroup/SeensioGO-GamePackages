@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: 3933b4f3cd205a747bfc1c4b4f8d9b41
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2199961058989904737
+    second: 03-Sao_0
+  - first:
+      213: 9059544500995672808
+    second: 03-Sao_1
+  - first:
+      213: -4268109525130681771
+    second: 03-Sao_2
+  - first:
+      213: 4583451494937419319
+    second: 03-Sao_3
+  - first:
+      213: 6000466258325818352
+    second: 03-Sao_4
+  - first:
+      213: 2400713347713278265
+    second: 03-Sao_5
+  - first:
+      213: -3023556503420587896
+    second: 03-Sao_6
+  - first:
+      213: 8858757399071395160
+    second: 03-Sao_7
+  - first:
+      213: 8021441944792915460
+    second: 03-Sao_8
+  - first:
+      213: -8401800965029621464
+    second: 03-Sao_9
+  - first:
+      213: -5825764793813432237
+    second: 03-Sao_10
+  - first:
+      213: -1815592188532093681
+    second: 03-Sao_11
+  - first:
+      213: 983509859643700041
+    second: 03-Sao_12
+  - first:
+      213: 8150670895508229409
+    second: 03-Sao_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,11 +81,11 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -94,33 +136,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -134,12 +150,320 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 03-Sao_0
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 335
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16319c06de4d78e10800000000000000
+      internalID: 2199961058989904737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 329
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eac0b069b7f9bd70800000000000000
+      internalID: 9059544500995672808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_2
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 329
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 552ef141001a4c4c0800000000000000
+      internalID: -4268109525130681771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_3
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 335
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e5af8b9d0bb9f30800000000000000
+      internalID: 4583451494937419319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 99
+        width: 225
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb4a362540f54350800000000000000
+      internalID: 6000466258325818352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 296
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9312df9f11c015120800000000000000
+      internalID: 2400713347713278265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_6
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 99
+        width: 225
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8803b4f216b2a06d0800000000000000
+      internalID: -3023556503420587896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_7
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 296
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d83033be0a0fa70800000000000000
+      internalID: 8858757399071395160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_8
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 95
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40edcc903f2e15f60800000000000000
+      internalID: 8021441944792915460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_9
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 95
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82110e5798ec66b80800000000000000
+      internalID: -8401800965029621464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_10
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 66
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35806c749c9b62fa0800000000000000
+      internalID: -5825764793813432237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_11
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 66
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d02912688bdc6e0800000000000000
+      internalID: -1815592188532093681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_12
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 40
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9433829a10126ad00800000000000000
+      internalID: 983509859643700041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-Sao_13
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 40
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d02efcefffc1170800000000000000
+      internalID: 8150670895508229409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      03-Sao_0: 2199961058989904737
+      03-Sao_1: 9059544500995672808
+      03-Sao_10: -5825764793813432237
+      03-Sao_11: -1815592188532093681
+      03-Sao_12: 983509859643700041
+      03-Sao_13: 8150670895508229409
+      03-Sao_2: -4268109525130681771
+      03-Sao_3: 4583451494937419319
+      03-Sao_4: 6000466258325818352
+      03-Sao_5: 2400713347713278265
+      03-Sao_6: -3023556503420587896
+      03-Sao_7: 8858757399071395160
+      03-Sao_8: 8021441944792915460
+      03-Sao_9: -8401800965029621464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
