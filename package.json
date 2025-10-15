@@ -1,6 +1,6 @@
 {
     "name": "com.seensiogo.unitygamepackages",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "SeensioGo Packages",
     "description": "SeensioGo's core game packages",
     "unity": "6000.2",
