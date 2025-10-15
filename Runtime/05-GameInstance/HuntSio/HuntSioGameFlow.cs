@@ -24,7 +24,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private float targetScoreTime = 1f;
         [SerializeField] private float ingameDurationSeconds = 60f;
         [SerializeField] private CountdownTimer inGameCountdownTimer;
-        private bool isGameStarted = false;
+        public bool isGameStarted = false;
         public bool isAdsWatched = false;
         private bool isQuestCompltedPanelShown = false;
 
@@ -127,6 +127,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         private void StartNewLevel()
         {
             gameInstanceStarter.StartGame();
+            loadingPanel.SetActive(false);
             inGamePanel.SetActive(true);
         }
         #endregion
