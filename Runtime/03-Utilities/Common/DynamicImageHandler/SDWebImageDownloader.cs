@@ -1,17 +1,10 @@
-﻿// 
-// SDWebImageDownloader.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2018 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Networking;
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+
+namespace JKTechnologies.CommonPackage.Utilities
 {
 
     public class SDWebImageDownloader : Singleton<SDWebImageDownloader>
@@ -99,8 +92,8 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
                 }
 
                 Texture texture = DownloadHandlerTexture.GetContent(www);
-                GifDecoder gifDecoder = new GifDecoder();
-                if ((texture == null || (texture.width == 8 && texture.height == 8)) && gifDecoder.Read(new System.IO.MemoryStream(www.downloadHandler.data)) != GifDecoder.Status.Ok)
+                SeensioGifDecoder gifDecoder = new SeensioGifDecoder();
+                if ((texture == null || (texture.width == 8 && texture.height == 8)) && gifDecoder.Read(new System.IO.MemoryStream(www.downloadHandler.data)) != SeensioGifDecoder.Status.Ok)
                 {
                     SDWebImageDownloaderError error = new SDWebImageDownloaderError(SDWebImageDownloaderError.ErrorType.FailedURL);
                     EndDownloadOperation(error, null);

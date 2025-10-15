@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
 
-    public class GifDecoder
+    public class SeensioGifDecoder
     {
 
         public enum Status { Ok, FormatError, OpenError }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     public class WebAudioDownloaderOperation
     {

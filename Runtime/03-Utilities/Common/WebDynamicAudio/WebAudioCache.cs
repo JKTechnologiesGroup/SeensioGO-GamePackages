@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     public class WebAudioCache : Singleton<WebAudioCache>
     {

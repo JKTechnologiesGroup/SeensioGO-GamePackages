@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     [System.Serializable]
     public class DynamicTexture

@@ -1,18 +1,10 @@
-﻿// 
-// SDAnimatedImage.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2019 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     [AddComponentMenu("Miscellaneous/SDAnimatedImage")]
     public class SDAnimatedImage : MonoBehaviour
@@ -106,11 +98,11 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
         private Component _targetComponent;
         private int _targetMaterial = 0;
 
-        private GifDecoder decoder;
+        private SeensioGifDecoder decoder;
         private bool firstFrameShown;
 
-        private List<GifDecoder.GifFrame> framesCache;
-        private GifDecoder.GifFrame currentFrame;
+        private List<SeensioGifDecoder.GifFrame> framesCache;
+        private SeensioGifDecoder.GifFrame currentFrame;
         private bool frameIsReady;
         private int currentFrameIndex;
         private float currentFrameRemainingTime;
@@ -262,7 +254,7 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
 
         #region Animated Image Player
 
-        private void CacheGifFrame(GifDecoder.GifFrame frame)
+        private void CacheGifFrame(SeensioGifDecoder.GifFrame frame)
         {
             var imageCopy = new byte[frame.data.Length];
             Buffer.BlockCopy(frame.data, 0, imageCopy, 0, frame.data.Length);
@@ -450,7 +442,7 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
         {
             _targetComponent = GetTargetComponent();
 
-            decoder = new GifDecoder();
+            decoder = new SeensioGifDecoder();
 
             currentFrameIndex = 0;
             firstFrameShown = false;
@@ -465,7 +457,7 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
 
             if (loop)
             {
-                framesCache = new List<GifDecoder.GifFrame>();
+                framesCache = new List<SeensioGifDecoder.GifFrame>();
             }
         }
 
@@ -511,7 +503,7 @@ namespace JKTechnologies.SeensioGo.Packages.Unility.Common
                 lock (locker)
                 {
                     Init();
-                    if (decoder.Read(new System.IO.MemoryStream(imageData)) == GifDecoder.Status.Ok)
+                    if (decoder.Read(new System.IO.MemoryStream(imageData)) == SeensioGifDecoder.Status.Ok)
                     {
                         state = State.PreDecoding;
                         CreateTargetTexture();

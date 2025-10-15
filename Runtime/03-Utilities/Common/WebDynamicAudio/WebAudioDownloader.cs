@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     public class WebAudioDownloader : Singleton<WebAudioDownloader>
     {

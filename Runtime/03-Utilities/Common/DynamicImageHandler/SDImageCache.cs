@@ -1,12 +1,4 @@
-﻿// 
-// SDImageCache.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2018 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -15,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     public class SDImageCache : Singleton<SDImageCache>
     {

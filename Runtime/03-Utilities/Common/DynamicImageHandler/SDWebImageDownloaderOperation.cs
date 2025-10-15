@@ -1,16 +1,8 @@
-﻿// 
-// SDWebImageDownloaderOperation.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2019 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     public class SDWebImageDownloaderOperation
     {

@@ -1,17 +1,9 @@
-﻿// 
-// SDWebImage.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2018 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     [AddComponentMenu("Miscellaneous/SDWebImage")]
     public class SDWebImage : MonoBehaviour

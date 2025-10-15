@@ -1,16 +1,8 @@
-﻿// 
-// SDWebImageManager.cs
-// SDWebImage
-//
-// Created by Abdalla Tawfik
-// Copyright © 2018 RIZMY Studio. All rights reserved.
-//
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
     [Flags]
     public enum SDWebImageOptions

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Michsky.DreamOS
+namespace JKTechnologies.CommonPackage.Utilities
 {
     [RequireComponent(typeof(Image))]
     public class HoverEffect : MonoBehaviour

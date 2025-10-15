@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+namespace JKTechnologies.CommonPackage.Utilities
 {
 	// The gradient effect used throughout the kit. This code is heavily inspired
 	// by https://github.com/azixMcAze/Unity-UIGradient. All credit goes to them!
