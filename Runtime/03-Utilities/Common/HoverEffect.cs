@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-#if ENABLE_INPUT_SYSTEM
-// using UnityEngine.InputSystem;
-#endif
 
 namespace Michsky.DreamOS
 {
@@ -26,11 +23,8 @@ namespace Michsky.DreamOS
 
         void Update()
         {
-#if ENABLE_LEGACY_INPUT_MANAGER
             targetImage.transform.position = Input.mousePosition;
-#elif ENABLE_INPUT_SYSTEM
-            targetImage.transform.position = Mouse.current.position.ReadValue();
-#endif
+
             if (fadeIn == true)
             {
                 targetImage.color = Color.Lerp(targetImage.color, inColor, Time.unscaledDeltaTime * speed);
