@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace JKTechnologies.SeensioGo
+namespace JKTechnologies.SeensioGo.Packages.Unility.Common
 {
     public class DynamicAudioHandler : MonoBehaviour
     {   

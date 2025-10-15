@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace JKTechnologies.SeensioGo
+namespace JKTechnologies.SeensioGo.Packages.Unility.Common
 {
     public class FileHelper: MonoBehaviour
     {

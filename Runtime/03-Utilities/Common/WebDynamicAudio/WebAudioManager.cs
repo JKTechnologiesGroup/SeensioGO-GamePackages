@@ -2,92 +2,104 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[Flags]
-public enum WebAudioOptions {
-    None = 0,
-    MemoryCache = 1,
-    DiskCache = 2,
-    ShowLoadingIndicator = 4
-}
-
-public class WebAudioManager : Singleton<WebAudioManager> {
-
-    #region Internal Fields
-
-    private HashSet<string> failedURLs;
-
-    #endregion
-
-
-    #region Unity Callbacks
-
-    protected override void Awake() {
-        base.Awake();
-
-        failedURLs = new HashSet<string>();
+namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+{
+    [Flags]
+    public enum WebAudioOptions
+    {
+        None = 0,
+        MemoryCache = 1,
+        DiskCache = 2,
+        ShowLoadingIndicator = 4
     }
 
-    #endregion
+    public class WebAudioManager : Singleton<WebAudioManager>
+    {
+
+        #region Internal Fields
+
+        private HashSet<string> failedURLs;
+
+        #endregion
 
 
-    #region Public API
+        #region Unity Callbacks
 
-    public void LoadAudioWithURL(string url, int objectId, WebAudioOptions options, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback) {
-        if (failedURLs.Contains(url)) {
-            if (completionCallback != null) {
-                completionCallback(new WebAudioDownloaderError(WebAudioDownloaderError.ErrorType.FailedURL), null);
-            }
+        protected override void Awake()
+        {
+            base.Awake();
 
-            return;
+            failedURLs = new HashSet<string>();
         }
 
-        WebAudioCache.instance.QueryAudioDataFromCacheForURL(url, options, (cachedData) => {
-            if (cachedData != null) {
-                if (completionCallback != null) {
-                    completionCallback(null, cachedData);
+        #endregion
+
+
+        #region Public API
+
+        public void LoadAudioWithURL(string url, int objectId, WebAudioOptions options, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback)
+        {
+            if (failedURLs.Contains(url))
+            {
+                if (completionCallback != null)
+                {
+                    completionCallback(new WebAudioDownloaderError(WebAudioDownloaderError.ErrorType.FailedURL), null);
                 }
 
                 return;
             }
 
-            WebAudioDownloader.instance.DownloadAudioWithURL(url, objectId, progressCallback, (error, downloadedData) =>
+            WebAudioCache.instance.QueryAudioDataFromCacheForURL(url, options, (cachedData) =>
             {
-                // Debug.LogError("Download Audio");
-                if (error != null)
+                if (cachedData != null)
                 {
-                    // Debug.LogError("Error");
-                    if (error.type == WebAudioDownloaderError.ErrorType.InvalidURL
-                        || error.type == WebAudioDownloaderError.ErrorType.NotFound
-                        || error.type == WebAudioDownloaderError.ErrorType.FailedURL)
-                    {
-                        failedURLs.Add(url);
-                    }
-
                     if (completionCallback != null)
                     {
-                        completionCallback(error, null);
+                        completionCallback(null, cachedData);
                     }
 
                     return;
                 }
 
-                if (downloadedData != null)
+                WebAudioDownloader.instance.DownloadAudioWithURL(url, objectId, progressCallback, (error, downloadedData) =>
                 {
-                    // Debug.LogError("Success");
-
-                    if (completionCallback != null)
+                    // Debug.LogError("Download Audio");
+                    if (error != null)
                     {
-                        completionCallback(null, downloadedData);
+                        // Debug.LogError("Error");
+                        if (error.type == WebAudioDownloaderError.ErrorType.InvalidURL
+                            || error.type == WebAudioDownloaderError.ErrorType.NotFound
+                            || error.type == WebAudioDownloaderError.ErrorType.FailedURL)
+                        {
+                            failedURLs.Add(url);
+                        }
+
+                        if (completionCallback != null)
+                        {
+                            completionCallback(error, null);
+                        }
+
+                        return;
                     }
 
-                    WebAudioCache.instance.CacheAudioDataForURL(url, downloadedData, options);
-                }
+                    if (downloadedData != null)
+                    {
+                        // Debug.LogError("Success");
 
-                // Debug.LogError("Hello");
+                        if (completionCallback != null)
+                        {
+                            completionCallback(null, downloadedData);
+                        }
+
+                        WebAudioCache.instance.CacheAudioDataForURL(url, downloadedData, options);
+                    }
+
+                    // Debug.LogError("Hello");
+                });
             });
-        });
+        }
+
+        #endregion
+
     }
-
-    #endregion
-
 }

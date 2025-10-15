@@ -3,66 +3,83 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WebAudioDownloaderOperation {
+namespace JKTechnologies.SeensioGo.Packages.Unility.Common
+{
+    public class WebAudioDownloaderOperation
+    {
 
-    public string url;
-    public bool running;
-    public bool finished;
-    public IEnumerator downloadOperation;
-    public IEnumerator downloadProgressTrackingOperation;
+        public string url;
+        public bool running;
+        public bool finished;
+        public IEnumerator downloadOperation;
+        public IEnumerator downloadProgressTrackingOperation;
 
-    private Dictionary<int, Action<float>> progressCallbacks;
-    private Dictionary<int, Action<WebAudioDownloaderError, AudioClip>> completionCallbacks;
+        private Dictionary<int, Action<float>> progressCallbacks;
+        private Dictionary<int, Action<WebAudioDownloaderError, AudioClip>> completionCallbacks;
 
-    public WebAudioDownloaderOperation(string url, int id, IEnumerator downloadOperation, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback) {
-        this.url = url;
-        this.downloadOperation = downloadOperation;
+        public WebAudioDownloaderOperation(string url, int id, IEnumerator downloadOperation, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback)
+        {
+            this.url = url;
+            this.downloadOperation = downloadOperation;
 
-        progressCallbacks = new Dictionary<int, Action<float>> {
+            progressCallbacks = new Dictionary<int, Action<float>> {
             { id, progressCallback }
         };
 
-        completionCallbacks = new Dictionary<int, Action<WebAudioDownloaderError, AudioClip>> {
+            completionCallbacks = new Dictionary<int, Action<WebAudioDownloaderError, AudioClip>> {
             { id, completionCallback }
         };
-    }
-
-    public void AddCallBacks(int id, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback) {
-        progressCallbacks.Add(id, progressCallback);
-        completionCallbacks.Add(id, completionCallback);
-    }
-
-    public void RemoveCallbacks(int id) {
-        if (progressCallbacks.ContainsKey(id)) {
-            progressCallbacks.Remove(id);
         }
 
-        if (completionCallbacks.ContainsKey(id)) {
-            completionCallbacks.Remove(id);
+        public void AddCallBacks(int id, Action<float> progressCallback, Action<WebAudioDownloaderError, AudioClip> completionCallback)
+        {
+            progressCallbacks.Add(id, progressCallback);
+            completionCallbacks.Add(id, completionCallback);
         }
-    }
 
-    public void CallProgressCallbacks(float progress) {
-        foreach (var progressCallback in progressCallbacks) {
-            if (progressCallback.Value != null) {
-                progressCallback.Value(progress);
+        public void RemoveCallbacks(int id)
+        {
+            if (progressCallbacks.ContainsKey(id))
+            {
+                progressCallbacks.Remove(id);
+            }
+
+            if (completionCallbacks.ContainsKey(id))
+            {
+                completionCallbacks.Remove(id);
             }
         }
-    }
 
-    public void CallCompletionCallbacks(WebAudioDownloaderError error, AudioClip data) {
-        foreach (var completionCallback in completionCallbacks) {
-            if (completionCallback.Value != null) {
-                completionCallback.Value(error, data);
+        public void CallProgressCallbacks(float progress)
+        {
+            foreach (var progressCallback in progressCallbacks)
+            {
+                if (progressCallback.Value != null)
+                {
+                    progressCallback.Value(progress);
+                }
             }
         }
-    }
 
-    public bool IsValid() {
-        return progressCallbacks.Count > 0 || completionCallbacks.Count > 0;
-    }
+        public void CallCompletionCallbacks(WebAudioDownloaderError error, AudioClip data)
+        {
+            foreach (var completionCallback in completionCallbacks)
+            {
+                if (completionCallback.Value != null)
+                {
+                    completionCallback.Value(error, data);
+                }
+            }
+        }
 
-    public bool IsIdIncluded(int id) {
-        return progressCallbacks.ContainsKey(id) || completionCallbacks.ContainsKey(id);
+        public bool IsValid()
+        {
+            return progressCallbacks.Count > 0 || completionCallbacks.Count > 0;
+        }
+
+        public bool IsIdIncluded(int id)
+        {
+            return progressCallbacks.ContainsKey(id) || completionCallbacks.ContainsKey(id);
+        }
     }
 }

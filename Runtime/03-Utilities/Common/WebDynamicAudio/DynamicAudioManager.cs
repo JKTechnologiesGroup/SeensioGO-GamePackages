@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace JKTechnologies.SeensioGo
+namespace JKTechnologies.SeensioGo.Packages.Unility.Common
 {
     [System.Serializable]
     public class DynamicAudioClip
