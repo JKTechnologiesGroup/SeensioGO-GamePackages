@@ -24,9 +24,9 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
         [SerializeField] private float targetScoreTime = 1f;
         [SerializeField] private float ingameDurationSeconds = 60f;
         [SerializeField] private CountdownTimer inGameCountdownTimer;
-        private static bool isGameStarted = false;
-        public static bool isAdsWatched = false;
-        private static bool isQuestCompltedPanelShown = false;
+        private bool isGameStarted = false;
+        public bool isAdsWatched = false;
+        private bool isQuestCompltedPanelShown = false;
 
         [Header("[ EndGame Components ]")]
         [SerializeField] private CountdownTimer watchAdsCountdownTimer;
