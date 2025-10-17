@@ -6928,13 +6928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035d239896e9c4170b983f53140425f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioHandler
-  url: https://firebasestorage.googleapis.com/v0/b/seensio-app.appspot.com/o/app-audios%2Fwhoosh.mp3?alt=media&token=4bc59457-7f13-4edc-a888-d012aaac8735
-  keep: 1
-  audioSource: {fileID: 1707207765}
-  loaded: 0
-  isCanceled: 0
-  cachedAudio: 1
-  isDestroyed: 0
 --- !u!82 &1707207765
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8418,13 +8411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035d239896e9c4170b983f53140425f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioHandler
-  url: https://firebasestorage.googleapis.com/v0/b/seensio-app.appspot.com/o/app-audios%2Fwhoosh.mp3?alt=media&token=4bc59457-7f13-4edc-a888-d012aaac8735
-  keep: 1
-  audioSource: {fileID: 1967021902}
-  loaded: 0
-  isCanceled: 0
-  cachedAudio: 1
-  isDestroyed: 0
 --- !u!1 &1994176701
 GameObject:
   m_ObjectHideFlags: 0
@@ -9254,11 +9240,11 @@ RectTransform:
   - {fileID: 3675661763207791667}
   m_Father: {fileID: 1223796172086598526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -20, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 20}
   m_SizeDelta: {x: 160, y: 50}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &2834065991264319581
 GameObject:
   m_ObjectHideFlags: 0
@@ -9319,13 +9305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035d239896e9c4170b983f53140425f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioHandler
-  url: https://firebasestorage.googleapis.com/v0/b/seensio-app.appspot.com/o/app-audios%2Fwhoosh.mp3?alt=media&token=4bc59457-7f13-4edc-a888-d012aaac8735
-  keep: 1
-  audioSource: {fileID: 3141214937156168789}
-  loaded: 0
-  isCanceled: 0
-  cachedAudio: 1
-  isDestroyed: 0
 --- !u!82 &3141214937156168789
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10089,13 +10068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035d239896e9c4170b983f53140425f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JKTechnologies.SeensioGo.DynamicAudioHandler
-  url: https://firebasestorage.googleapis.com/v0/b/seensio-app.appspot.com/o/app-audios%2Fwhoosh.mp3?alt=media&token=4bc59457-7f13-4edc-a888-d012aaac8735
-  keep: 1
-  audioSource: {fileID: 4219358597948914798}
-  loaded: 0
-  isCanceled: 0
-  cachedAudio: 1
-  isDestroyed: 0
 --- !u!82 &4219358597948914798
 AudioSource:
   m_ObjectHideFlags: 0

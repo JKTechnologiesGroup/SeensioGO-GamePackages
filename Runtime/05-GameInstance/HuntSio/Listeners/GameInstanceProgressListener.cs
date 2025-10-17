@@ -24,7 +24,7 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             progressText.text = $"<b>{currentPlayerScore}/{targetScore}</b>";
         }
 
-        public void OnPlayerStoreUpdated(int currentPlayerScore)
+        public void OnPlayerScoreUpdated(int currentPlayerScore)
         {
             this.currentPlayerScore = currentPlayerScore;
             progressText.text = $"<b>{currentPlayerScore}/{targetScore}</b>";
