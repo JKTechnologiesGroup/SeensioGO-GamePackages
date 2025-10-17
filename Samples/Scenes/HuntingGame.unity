@@ -678,6 +678,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1847769512060043357, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450589991011528791, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450589991011528791, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450589991011528791, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450589991011528791, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451033997689333330, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6451033997689333330, guid: b9caeea9869b143d1905b5e10e179d99, type: 3}
       propertyPath: m_lineSpacing
       value: -35
@@ -9511,7 +9535,7 @@ MonoBehaviour:
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 12
+  m_fontSizeMin: 10
   m_fontSizeMax: 14
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -10769,7 +10793,7 @@ MonoBehaviour:
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 12
+  m_fontSizeMin: 10
   m_fontSizeMax: 14
   m_fontStyle: 1
   m_HorizontalAlignment: 4
@@ -11154,8 +11178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: 0}
-  m_SizeDelta: {x: -105, y: 0}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -115, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &9217988990466078025
 RectTransform:
