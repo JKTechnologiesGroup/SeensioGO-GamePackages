@@ -43,6 +43,13 @@ namespace JKTechnologies.SeensioGo.GameEngines.HuntSio
             }
         }
 
+        public void AddMoreDuration(int duration)
+        {
+            remainingTime = duration;
+            isTimerRunning = true;
+            UpdateTimerUI();
+        }
+
         public void StartTimer()
         {
             remainingTime = countdownDuration;
